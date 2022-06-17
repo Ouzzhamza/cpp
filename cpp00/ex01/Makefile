@@ -2,20 +2,21 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror 
 
-SRC = main.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp
+
+OBJ = $(SRC:.cpp=.o)
 
 NAME = My_owsome_PhoneBook
-
-$(OBJ) = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
+			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean : 
 		rm -rf $(OBJ)
-fclean : 
-		clean
+
+fclean : clean
 		rm -rf $(NAME)
 re : 
 	clean all
