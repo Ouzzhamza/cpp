@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 09:50:20 by houazzan          #+#    #+#             */
-/*   Updated: 2022/06/17 15:34:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/07/16 21:35:57 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ void    add(Contact *contact)
 
 int main(int ac, char **av)
 {
-    Contact contact;
-    PhoneBook phonebook;
+    PhoneBook phonebook[8];
+    Contact   contact;
 
     std::string order;
     std::cout << "do you want to : ADD, SEARCH or EEXIT ?" << "\n";
      std::cin >> order;
     if (order.compare("ADD") == 0)
-        add(&contact);
+    // for (int i = 0; i < 8; i++)
+    // {
+    add(&contact);
+    // }
     else if (order.compare("SEARCH") == 0)
          std::cout << "the user" << "\n";
     else if (order.compare("EXIT") == 0)

@@ -6,11 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:21:08 by houazzan          #+#    #+#             */
-/*   Updated: 2022/06/17 15:40:09 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/07/16 21:54:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "Contact.hpp"
+#include    "PhoneBook.hpp"
 
 // ! Setter for first name
 void Contact::setFirstName(std::string first_name)
@@ -57,29 +58,17 @@ std::string Contact::getSecret()
 	return this->first_name;
 }
 
-
-int digit_check(std::string str)
-{
-	int i = 0;
-	while (str[i])
-	{
-		if (isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 // * Setter for phone number
 void Contact::setPhoneNumber(unsigned int phone_number)
 {
-	this->first_name = phone_number;
+	this->phone_number = phone_number;
 }
 // * Getter for phone number
 unsigned int Contact::getPhoneNumber()
 {
 	std::string str = std::to_string(this->phone_number);
-	if (!digit_check(str))
+	std::cout << "1 here " << this->phone_number << std::endl;
+	if (!str[0])
 		std::cout << "Error: Invalid phone number" << std::endl;
 	return this->phone_number;
 }
