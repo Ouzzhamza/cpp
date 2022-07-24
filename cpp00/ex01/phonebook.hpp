@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 11:45:38 by houazzan          #+#    #+#             */
-/*   Updated: 2022/05/24 11:45:38 by houazzan         ###   ########.fr       */
+/*   Created: 2022/07/16 20:51:51 by houazzan          #+#    #+#             */
+/*   Updated: 2022/07/24 18:59:54 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if !defined(PHONE_BOOK_HPP)
-#define PHONE_BOOK_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-class phonebook
+# include <string>
+# include <iostream>
+
+
+class PhoneBook
 {
 private:
-    /* data */
-public:
-    phonebook(/* args */);
-    ~phonebook();
+    class  contact[8];    
 };
 
-phonebook::phonebook(/* args */)
-{
-}
-
-phonebook::~phonebook()
-{
-}
-
-
-
-#endif // PHONE_BOOK_HPP
+#endif

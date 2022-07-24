@@ -6,7 +6,7 @@ SRC = main.cpp Contact.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = My_owsome_PhoneBook
+NAME = My_Owsome_PhoneBook
 
 all : $(NAME)
 
