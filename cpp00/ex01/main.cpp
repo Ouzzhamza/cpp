@@ -6,16 +6,17 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 09:50:20 by houazzan          #+#    #+#             */
-/*   Updated: 2022/07/26 16:03:53 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:51:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "PhoneBook.hpp"
+#include    "phonebook.hpp"
 #include    "Contact.hpp"
 
 int main(int ac, char **av)
 {
     PhoneBook phonebook;
+    phonebook.max_contact_number = 8;
     std::string order;
     while (1)
     {

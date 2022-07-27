@@ -6,12 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:21:08 by houazzan          #+#    #+#             */
-/*   Updated: 2022/07/26 15:55:19 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:20:34 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "Contact.hpp"
-#include    "PhoneBook.hpp"
+#include   "phonebook.hpp"
 
 
 void	Contact::set_infos(Contact *contact, unsigned int i, std::string information)
@@ -49,7 +49,9 @@ void  Contact::create_conact(Contact *contact)
         else if (information.empty())
             i -=1;
         else
+        {
             contact->set_infos(contact, i, information); 
+        }
         if (i == 4)
         {
             std::cout << GREEN << "Contact added" << RESET << std::endl;
