@@ -14,16 +14,14 @@
 # define PHONEBOOK_HPP
 
 # include  "Contact.hpp"
-# include <string>
-# include <iostream>
-
 
 class PhoneBook
 {
     static int number_of_contacts;
-    Contact contact[1];
+    Contact contact[8];
 public :
     void store();
+	void show_all();
     int max_contact_number;
 };
 

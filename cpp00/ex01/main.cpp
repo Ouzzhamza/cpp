@@ -25,9 +25,12 @@ int main(int ac, char **av)
         if (order.compare("ADD") == 0)
             phonebook.store();
         else if (order.compare("SEARCH") == 0)
-             std::cout << "the user" << "\n";
+			phonebook.show_all();
         else if (order.compare("EXIT") == 0)
+		{
              std::cout << "exit" << "\n";
+			 exit(EXIT_SUCCESS);
+		}
         else if (std::cin.eof())
             exit(EXIT_SUCCESS);
     }

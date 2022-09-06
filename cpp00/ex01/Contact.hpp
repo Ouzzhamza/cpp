@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -26,6 +27,7 @@ class Contact
 public:
     void    create_conact(Contact *contact);
     void    set_infos(Contact *contact, unsigned int index, std::string nformation);
+	void	show_contact(Contact *contact);
 };
 
 

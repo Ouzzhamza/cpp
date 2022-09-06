@@ -60,3 +60,9 @@ void  Contact::create_conact(Contact *contact)
             
     }
 }
+
+void	Contact::show_contact(Contact *contact)
+{
+	std::cout << "|" << std::setw(10) << contact->first_name << "|"<< std::endl;
+}
+

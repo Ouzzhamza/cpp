@@ -22,6 +22,16 @@ void    PhoneBook::store()
 	if (index == 8)
 		index = 0;
 	contact[index].create_conact(&contact[index]);
-	std::cout << number_of_contacts << std::endl;
 	number_of_contacts++;
+}
+
+
+void	PhoneBook::show_all()
+{
+	std::cout << "|" << std::setw(10) << "index" <<"|" << 
+			  << "|" << std::setw(10) << "first_name" << "|" <<
+			  << "|" << std::setw(10) << "last_name" << "|" <<
+              << "|" << std::setw(10) << "nickname" << "|" << std::endl;
+	for (int i = 0; i < number_of_contacts; i++)
+			contact[i].show_contact(&contact[i]);
 }
