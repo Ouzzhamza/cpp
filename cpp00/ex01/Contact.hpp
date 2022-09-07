@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact
 {
@@ -27,9 +28,9 @@ class Contact
 public:
     void    create_conact(Contact *contact);
     void    set_infos(Contact *contact, unsigned int index, std::string nformation);
-	void	show_contact(Contact *contact);
+	void	show_contact(Contact *contact, int index);
+	void	show_full_contact(Contact *contact);
 };
-
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      /* Red */

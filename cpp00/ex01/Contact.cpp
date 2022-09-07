@@ -31,8 +31,6 @@ void	Contact::set_infos(Contact *contact, unsigned int i, std::string informatio
 	}
 }
 
-
-
 void  Contact::create_conact(Contact *contact)
 {
     std::string information;
@@ -49,9 +47,7 @@ void  Contact::create_conact(Contact *contact)
         else if (information.empty())
             i -=1;
         else
-        {
             contact->set_infos(contact, i, information); 
-        }
         if (i == 4)
         {
             std::cout << GREEN << "Contact added" << RESET << std::endl;
@@ -61,8 +57,16 @@ void  Contact::create_conact(Contact *contact)
     }
 }
 
-void	Contact::show_contact(Contact *contact)
+void	Contact::show_contact(Contact *contact, int index)
 {
-	std::cout << "|" << std::setw(10) << contact->first_name << "|"<< std::endl;
+	std::cout << "|" << std::setw(10) << index <<"|"
+			  << std::setw(10) << contact->first_name << "|"
+			  << std::setw(10) << contact->last_name << "|"
+              << std::setw(10) << contact->nickname << "|" << std::endl;
 }
 
+void Contact::show_full_contact(Contact *contact)
+{
+	std::cout << "hello" << std::endl;
+}
+		
