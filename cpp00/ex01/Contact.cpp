@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:21:08 by houazzan          #+#    #+#             */
-/*   Updated: 2022/07/27 17:20:34 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/08 18:39:07 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,32 @@ void  Contact::create_conact(Contact *contact)
     }
 }
 
+std::string	truncate(std::string str)
+{
+	if (str.length() >= 10)
+		return (str.substr(0, 9) + ".");
+	else
+		return (str);
+}
+	
+
+
 void	Contact::show_contact(Contact *contact, int index)
 {
 	std::cout << "|" << std::setw(10) << index <<"|"
-			  << std::setw(10) << contact->first_name << "|"
-			  << std::setw(10) << contact->last_name << "|"
-              << std::setw(10) << contact->nickname << "|" << std::endl;
+			  << std::setw(10) << truncate(contact->first_name) << "|"
+			  << std::setw(10) << truncate(contact->last_name) << "|"
+              << std::setw(10) << truncate(contact->nickname)
+			  << "|" << std::endl;
 }
 
 void Contact::show_full_contact(Contact *contact)
 {
-	std::cout << "hello" << std::endl;
+	 std::cout << contact->first_name << std::endl;
+	 std::cout << contact->last_name << std::endl;
+	 std::cout << contact->nickname << std::endl;
+	 std::cout << contact->darkest_secret << std::endl;
+	 std::cout << contact->phone_number << std::endl;
+
 }
 		

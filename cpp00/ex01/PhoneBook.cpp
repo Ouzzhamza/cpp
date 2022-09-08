@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:30:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/07 16:24:02 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/08 19:03:41 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void    PhoneBook::store()
 	contact_number++;
 }
 
-
 void print_columns()
 {
 	 std::cout << "|" << std::setw(10) << "index" <<"|"
@@ -35,17 +34,33 @@ void print_columns()
 void	PhoneBook::show_all()
 {
 	int index;
+	bool check = false;
 	if (contact_number == 0)
+	{
 		std::cout << "No contact found" << std::endl;
+		return ;
+	}
 	print_columns();
 	for (int i = 0; i < contact_number; i++)
-			contact[i].show_contact(&contact[i], i + 1);
-	while (!std::cin)
 	{
-		std::cout << "index >";
-		if (std::cin >> index)
-		contact[index - 1].show_full_contact(&contact[index - 1]);
+			contact[i].show_contact(&contact[i], i + 1);
+	}
+	while(!check)
+	{
+		std::cout << "Index >";
+		std::cin >> index;
+		if(std::cin.fail())
+		{
+			std::cout << "Invalid index" << std::endl;
+			std::cin.clear();
+			std::cin.ignore();
+		}
 		else
-			continue;
+		{
+			contact[index].show_full_contact(&contact[index - 1]);
+			check = true;
+			std::cin.clear();
+            std::cin.ignore();
+		}
 	}
 }

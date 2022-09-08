@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 09:50:20 by houazzan          #+#    #+#             */
-/*   Updated: 2022/07/27 17:51:59 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/08 19:00:40 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int main(int ac, char **av)
         std::getline(std::cin, order);
         if (order.compare("ADD") == 0)
             phonebook.store();
-        else if (order.compare("SEARCH") == 0)
+		else if (order.compare("SEARCH") == 0)
 			phonebook.show_all();
-        else if (order.compare("EXIT") == 0)
+		else if (order.compare("EXIT") == 0)
 			break;
-		else
-			std::cout << "Invalid command" << std::endl;
     }
 	return (EXIT_SUCCESS);
 }
