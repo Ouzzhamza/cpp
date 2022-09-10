@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:30:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/08 19:03:41 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/10 11:44:55 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 
 int PhoneBook::contact_number = 0;
 
-void    PhoneBook::store()
+void    PhoneBook::store(int index)
 {
-	int index;
-	index = contact_number % MAX_CONTACTS_NB;
+	std::cout << index << std::endl;
+
+	index = index % MAX_CONTACTS_NB;
+
 	contact[index].create_conact(&contact[index]);
-	contact_number++;
+
+	if (contact_number < MAX_CONTACTS_NB)
+			contact_number++;
 }
 
 void print_columns()
@@ -35,12 +39,15 @@ void	PhoneBook::show_all()
 {
 	int index;
 	bool check = false;
+
 	if (contact_number == 0)
 	{
 		std::cout << "No contact found" << std::endl;
 		return ;
 	}
+
 	print_columns();
+
 	for (int i = 0; i < contact_number; i++)
 	{
 			contact[i].show_contact(&contact[i], i + 1);
