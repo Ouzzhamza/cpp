@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:30:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/10 11:44:55 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:50:20 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int PhoneBook::contact_number = 0;
 
 void    PhoneBook::store(int index)
 {
-	std::cout << index << std::endl;
-
 	index = index % MAX_CONTACTS_NB;
 
 	contact[index].create_conact(&contact[index]);
@@ -56,6 +54,8 @@ void	PhoneBook::show_all()
 	{
 		std::cout << "Index >";
 		std::cin >> index;
+		if (std::cin.eof())
+			exit(0);
 		if(std::cin.fail())
 		{
 			std::cout << "Invalid index" << std::endl;

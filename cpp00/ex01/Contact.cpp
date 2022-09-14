@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:21:08 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/10 15:27:25 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:43:33 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	Contact::set_infos(unsigned int i, std::string information)
 	else if (i == 4)
 	{
 		char const *str = information.data();
-		this->phone_number = std::stoi(str);
+		this->phone_number = std::atoi(str);
 	}
 }
 

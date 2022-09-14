@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 09:50:20 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/10 14:15:07 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:48:56 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 		{
 			phonebook.show_all();
 		}
-		else if (order.compare("EXIT") == 0)
+		else if (order.compare("EXIT") == 0 || std::cin.eof())
 		{
 			break;
 		}
