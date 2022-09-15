@@ -1,6 +1,6 @@
 CC = c++ 
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRC = main.cpp Contact.cpp PhoneBook.cpp
 
@@ -11,11 +11,14 @@ NAME = My_Owsome_PhoneBook
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-			$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean : 
 		rm -rf $(OBJ)
 
 fclean : clean
 		rm -rf $(NAME)
+
 re : fclean all
+
+.PHONY : all clean fclean re
