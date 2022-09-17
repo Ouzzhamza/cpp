@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:11:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/15 18:57:03 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/17 19:09:05 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main()
 {
-	Zombie foo;
-	foo.announce();
+	Zombie *foo = newZombie("Zombie1");
+	randomChump("Zombie2");
+	foo->announce();
 	return(0);
 }
