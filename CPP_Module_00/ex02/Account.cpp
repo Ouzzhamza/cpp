@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 10:09:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/14 21:20:20 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/18 16:29:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ Account::Account(int initial_diposit)
     std::cout << "index:"   << _accountIndex
               << ";amount:" << _amount
               << ";created" << std::endl;
+}
+
+Account::Account(void)
+{
+	
 }
 
 Account::~Account(void)

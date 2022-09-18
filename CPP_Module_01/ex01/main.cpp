@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 16:11:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/18 09:40:20 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/18 11:34:26 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/18 16:30:32 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-	Zombie *Z1 = newZombie("Zombie1");
-	Z1->announce();
-	randomChump("Zombie2");
-	delete Z1;
+	Zombie *Zhord = zombieHorde(10, "zombie");
+	for (int i = 0; i < 10; i++)
+		Zhord[i].announce();
 	return(0);
 }
+
