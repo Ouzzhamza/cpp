@@ -1,12 +1,12 @@
-CC = c++
+CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = tests.cpp Account.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = The_job_of_your_dreams
+NAME = Unnecessary_violence
 
 all : $(NAME)
 
@@ -25,5 +25,3 @@ fclean : clean
 re : fclean all
 
 .PHONY: all clean fclean re
-
-
