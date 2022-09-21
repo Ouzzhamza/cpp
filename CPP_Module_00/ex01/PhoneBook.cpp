@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:30:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/20 15:04:43 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:48:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	PhoneBook::show_all()
 		else
 			std::cout << "Invalid index" << std::endl;
 		std::cin.clear();
-		std::cin.ignore();	
+		std::cin.ignore(INT_MAX, '\n');	
 	}
 }
