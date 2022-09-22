@@ -6,7 +6,7 @@ SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = Harl
+NAME = Harl_filter
 
 all : $(NAME)
 

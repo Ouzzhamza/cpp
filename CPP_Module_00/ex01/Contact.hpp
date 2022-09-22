@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 09:47:03 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/10 07:30:51 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:47:45 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Contact
     unsigned int phone_number;
 public:
     void    create_conact(Contact *contact);
-    void    set_infos(unsigned int index, std::string nformation);
+    void    set_infos(unsigned int index, std::string information);
 	void	show_contact(Contact *contact, int index);
 	void	show_full_contact(Contact *contact);
 };
