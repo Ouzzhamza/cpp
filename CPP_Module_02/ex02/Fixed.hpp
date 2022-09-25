@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 10:42:02 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/25 09:19:35 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/25 18:52:54 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/25 19:44:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,22 @@
 
 #include	<iostream>
 
-class Fixed{
-
+class Fixed
+{
 	private:
 
-		int a;
-		static const int b = 8; 
-
+		static int integer;
+		const int cinteger;
+		static const int fbits = 8;
+		
 	public:
-
+		
 		Fixed();
-		Fixed(const Fixed &obj);
-		~Fixed();
-		Fixed& operator= (const Fixed &fixed);
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+			
+		static &min(static int &a, static int &b);
+		static &min(const int &a, const int &b);
+		static &max(static int &a, static int &b);
+		static &max(const int &a, const int &b);
 };
-
-
 
 #endif
