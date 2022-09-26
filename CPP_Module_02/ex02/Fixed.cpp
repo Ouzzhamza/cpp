@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:55:13 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/26 20:55:35 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/26 21:40:18 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-	this->integer = roundf(value * pow(2, fbits));
+	this->integer = roundf (value * pow(2, fbits));
 }
 
 Fixed::Fixed(const Fixed &obj)
@@ -83,25 +83,25 @@ bool Fixed::operator!= (const Fixed &obj)
 	return (this->integer != obj.integer);
 }
 		//ARITHMATIC
-Fixed& Fixed::operator+ (const Fixed &obj)
+Fixed Fixed::operator+ (const Fixed &obj)
 {
 	this->integer += obj.integer;
 	return(*this);
 }
 
-Fixed& Fixed::operator- (const Fixed &obj)
+Fixed Fixed::operator- (const Fixed &obj)
 {
 	this->integer -= obj.integer;
 	return(*this);
 }
 
-Fixed& Fixed::operator* (const Fixed &obj)
+Fixed Fixed::operator* (const Fixed &obj)
 {
 	this->integer *= obj.integer;
 	return(*this);
 }
 
-Fixed& Fixed::operator/ (const Fixed &obj)
+Fixed Fixed::operator/ (const Fixed &obj)
 {
 	this->integer /= obj.integer;
 	return(*this);
@@ -109,29 +109,28 @@ Fixed& Fixed::operator/ (const Fixed &obj)
 
 		//INCREMENT && DECREMENT
 
-Fixed& Fixed::operator++ ()
+Fixed Fixed::operator++ ()
 {
-	std::cout << "here" << std::endl;
 	integer++;;
 	return (*this);
 }
 
-Fixed& Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-	std::cout << "value" << integer << std::endl;
-	++integer;
-	return (*this);
+	Fixed temp;
+	temp.integer = integer;
+	integer++;
+	return (temp);
 };
 
-Fixed& Fixed::operator-- ()
+Fixed Fixed::operator-- ()
 {
 	integer--;
 	return (*this);
 }
 
-Fixed& Fixed::operator-- (int) 
+Fixed Fixed::operator-- (int) 
 {
-	std::cout << integer << "value" << std::endl;
 	--integer;
 	return (*this);
 }
@@ -159,6 +158,8 @@ void Fixed::setRawBits(int const raw)
 		    //CONVERT
 float Fixed::toFloat (void) const
 {
+
+	std::cout << "here " << (this->integer / pow(2, fbits)) << std::endl;
 	return (this->integer / pow(2, this->fbits));
 }
 
@@ -166,9 +167,8 @@ int Fixed::toInt(void) const
 {
 	return (this->integer / pow(2, this->fbits));
 }
+
 			//MIN && MAX
-
-
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
 	if (a.integer < b.integer)
@@ -179,7 +179,11 @@ Fixed& Fixed::min(Fixed& a, Fixed& b)
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
 	if (a.integer < b.integer)
+	{
+		std::cout << b.toFloat() <<std::endl;;
 		return(b);
+	}
+	std::cout << b.toFloat() << std::endl;
 	return (a);
 }
 
