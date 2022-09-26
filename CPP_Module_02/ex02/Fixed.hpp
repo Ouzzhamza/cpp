@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:52:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/25 19:44:38 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/26 20:46:06 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,85 @@
 #define FIXED_HPP
 
 #include	<iostream>
+#include	<cmath>
 
-class Fixed
-{
+class Fixed{
+
 	private:
 
-		static int integer;
-		const int cinteger;
+		int integer;
 		static const int fbits = 8;
-		
+
 	public:
-		
+
+/******************************************************************************/
+/*                   	 CONSTRUCTORS & DESTRUCTORS                           */
+/******************************************************************************/
+
+		// DEFAULT
 		Fixed();
-			
-		static &min(static int &a, static int &b);
-		static &min(const int &a, const int &b);
-		static &max(static int &a, static int &b);
-		static &max(const int &a, const int &b);
+		
+		// TYPE CONSTRUCTORS
+		Fixed(const int value);	
+		Fixed(const float value);
+		
+		// COPY CONSTRUCTOR
+		Fixed(const Fixed &obj);
+
+		// DEFAULT DESTRUCTOR
+		~Fixed();
+		
+/******************************************************************************/
+/*                   	   OVERLOADING OPERATORS                              */
+/******************************************************************************/
+		// ASSIGNEMENT
+		Fixed& operator= (const Fixed &fixed);
+
+		// COMPARISON
+		bool operator< (const Fixed &obj);
+		bool operator<= (const Fixed &obj);
+		bool operator> (const Fixed &obj);
+		bool operator>= (const Fixed &obj);
+		bool operator== (const Fixed &obj);
+		bool operator!= (const Fixed &obj);
+		// ARITHMATIC
+		Fixed& operator+ (const Fixed &obj);
+		Fixed& operator- (const Fixed &obj);
+		Fixed& operator* (const Fixed &obj);
+		Fixed& operator/ (const Fixed &obj);
+		// INCREMENT && DECREMENT 
+		Fixed& operator++ ();
+		Fixed& operator++ (int);
+		Fixed& operator-- ();
+		Fixed& operator-- (int);
+
+
+/******************************************************************************/
+/*                   	     GETTERS & SETTERS                                */
+/******************************************************************************/
+
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+
+/******************************************************************************/
+/*                   	    MUMBER FUNCTIONS                                  */
+/******************************************************************************/
+
+		//CONVERT
+		float toFloat( void ) const;
+		int toInt( void ) const;
+
+		// MIN AND MAX
+		static Fixed& min(Fixed& a, Fixed& b);
+		static const Fixed& min(const Fixed& a, const Fixed& b);
+		static Fixed& max(Fixed& a, Fixed& b);
+		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
+
+/******************************************************************************/
+/*                        NON-MUMBER FUNCTIONS                                */
+/******************************************************************************/
+
+std::ostream &operator << (std::ostream &out, const Fixed &obj);
 
 #endif
