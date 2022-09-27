@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 18:20:41 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/27 11:08:46 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/27 15:36:12 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/27 21:59:29 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"Fixed.hpp"
-
-
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ));
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+#include	"ClapTrap.hpp"
+	
+int main()
+{
+	ClapTrap nigan("nigan");
+	ClapTrap rick("rick");
+	nigan.setter("damage", 5);
+	nigan.attack("rick");
+	rick.takeDamage(nigan.getter("damage"));
+	std::cout << rick.getter("hit") << std::endl;
+	rick.beRepaired(2);
+	std::cout << rick.getter("hit") << std::endl;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:55:13 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/26 21:40:18 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:08:44 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const int value)
 {
-	this->integer = value * pow(2, fbits);
+	this->integer = value;
 }
 
 Fixed::Fixed(const float value)
@@ -159,7 +159,6 @@ void Fixed::setRawBits(int const raw)
 float Fixed::toFloat (void) const
 {
 
-	std::cout << "here " << (this->integer / pow(2, fbits)) << std::endl;
 	return (this->integer / pow(2, this->fbits));
 }
 
