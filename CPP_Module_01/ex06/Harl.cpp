@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:54:27 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/22 15:44:23 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:11:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ int type (std::string level)
 
 void Harl::complain(std::string level)
 {
-	int i = type(level);
-	switch(i)
-	{
-		case 1:
-			Harl::debug();
-		//	break;
-		case 2:
-			Harl::info();
-			//break;
-		case 3:
-			Harl::warning();
-			//break;
-		case 4:
-			Harl::error();
+	std::string str = "DEBUG INFO WARNING ERROR";
+    size_t i = str.find(level);
+    if (str[level.length() + i] != ' ' && str[level.length() + i] != '\0')
+        i = -1;
+    switch(i)
+    {
+        case 0:
+            Harl::debug();
+        case 6:
+            Harl::info();
+        case 11:
+            Harl::warning();
+        case 19:
+	 		Harl::error();
 			break;
-		default:
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	}
+        default:
+	 		std::cout << "nothing to print" << std::endl;
+     }
 }
 

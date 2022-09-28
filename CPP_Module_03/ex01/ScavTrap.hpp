@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 20:26:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:34:52 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/28 09:11:13 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/28 11:12:16 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B
-#define HUMAN_B
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include "Weapon.hpp"
+#include "ClapTrap.hpp"
 
-class HumanB{
 
-		std::string name;
-		Weapon *weapon;
+class ScavTrap : public ClapTrap
+{
 	public:
-		void attack();
-		void setWeapon(Weapon &_weapon);
-		HumanB(std::string);
-		~HumanB();
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& scavtrap);
+		~ScavTrap();
+		Scavtrap &operator= (const ScavTrap& obj);
 };
-
-
-
 
 #endif

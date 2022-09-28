@@ -6,25 +6,21 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:48:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/26 14:47:33 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:59:27 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 
-int main (int ac, char **av)
+int main ()
 {
-	if (ac != 2)
-	{
-		std::cout << "Wrong number of parameters" << std::endl;
-		return(0);
-	}
-	else
-	{
-		Harl harl;
-		std::string choice = av[1];
-		harl.complain(choice);
-	}
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+//	harl.complain("");
+//	harl.complain("DEBUG");
 	return (0);
 }

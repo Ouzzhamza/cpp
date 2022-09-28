@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:12:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 09:02:28 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,8 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "destructor called" << std::endl;
 }
-	// Name setter
-void ClapTrap::setname (const std::string& name)
-{
-	this->name = name;
-}
+
+
 	// Assignement operator
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& claptrap)

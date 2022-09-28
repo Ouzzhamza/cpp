@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 20:26:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:34:52 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/27 15:36:12 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/28 09:45:32 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B
-#define HUMAN_B
-
-#include "Weapon.hpp"
-
-class HumanB{
-
-		std::string name;
-		Weapon *weapon;
-	public:
-		void attack();
-		void setWeapon(Weapon &_weapon);
-		HumanB(std::string);
-		~HumanB();
-};
-
-
-
-
-#endif
+#include	"ClapTrap.hpp"
+#include	"ScavTrap.hpp"
+	
+int main()
+{
+	ClapTrap nigan("nigan");
+	ScavTrap rick ("rick");
+//	ClapTrap rick("rick");
+//	nigan.setter("damage", 5);
+//	nigan.attack("rick");
+//	rick.takeDamage(nigan.getter("damage"));
+//	std::cout << rick.getter("hit") << std::endl;
+//	rick.beRepaired(2);
+//	std::cout << rick.getter("hit") << std::endl;
+	return (0);
+}
