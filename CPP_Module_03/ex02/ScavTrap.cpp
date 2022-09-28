@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:16:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 20:02:47 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 21:06:03 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 
 	//Default Construct
-ScavTrap::ScavTrap() : ClapTrap(0)
+ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap Default construct called" << std::endl;
 	hit = 100;
@@ -55,14 +55,14 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& obj)
 
 void ScavTrap::guardGate()
 {
-	std::cout << RED <<"ScavTrap is now in Gate keeper mode" << RESET << std::endl;
+	std::cout << RED  <<"ScavTrap is now in Gate keeper mode" << RESET << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)
 {
      if (hit > 0 && energy > 0)
  {
-         std::cout << "ScavTrap " << name << " attacks " << target << " , causing " << damage << " points of damage!" << std::endl;
+         std::cout << name << " attacks " << target << " , causing " << damage << " points of damage!" << std::endl;
          energy -= 1;
      }
      else

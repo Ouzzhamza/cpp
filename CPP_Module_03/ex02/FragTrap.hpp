@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 09:11:13 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 19:58:25 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/28 20:08:05 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/28 20:32:57 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
+#ifndef FragTRAP_HPP
+#define FragTRAP_HPP
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	public:
 
@@ -24,25 +24,24 @@ class ScavTrap : public ClapTrap
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 		//DEFAULT
-		ScavTrap();
+		FragTrap();
 
 		//TYPE CONSTRUCTOR
-		ScavTrap(std::string name);
+		FragTrap(std::string name);
 
 		//COPY CONSTRUCTOR
-		ScavTrap(const ScavTrap& scavtrap);
+		FragTrap(const FragTrap& Fragtrap);
 
 		//DESTRUCTOR
-		~ScavTrap();
+		~FragTrap();
 
 /******************************************************************************/
 /*                   	    MUMBER FUNCTIONS                                  */
 /******************************************************************************/
 		//ASSIGNEMENT OPERATOR
-		ScavTrap &operator= (const ScavTrap& obj);
-		
-		void guardGate();
-		void attack(const std::string& target);
+		FragTrap &operator= (const FragTrap& obj);
+
+		void highFivesGuys(void);
 };
 
 #define RESET   "\033[0m"

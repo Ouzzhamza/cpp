@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 09:11:13 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 19:58:25 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/28 21:47:56 by houazzan          #+#    #+#             */
+/*   Updated: 2022/09/28 22:26:18 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include	"FragTrap.hpp"
+#include	"ScavTrap.hpp"
 
+class DiamondTrap : public ScavTrap, public FragTrap
 
-class ScavTrap : public ClapTrap
 {
-	public:
+	private:
 
+		std::string name;
+	
+	public:
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 		//DEFAULT
-		ScavTrap();
-
-		//TYPE CONSTRUCTOR
-		ScavTrap(std::string name);
-
-		//COPY CONSTRUCTOR
-		ScavTrap(const ScavTrap& scavtrap);
-
-		//DESTRUCTOR
-		~ScavTrap();
-
-/******************************************************************************/
-/*                   	    MUMBER FUNCTIONS                                  */
-/******************************************************************************/
-		//ASSIGNEMENT OPERATOR
-		ScavTrap &operator= (const ScavTrap& obj);
+		DiamondTrap();
 		
-		void guardGate();
-		void attack(const std::string& target);
-};
+		//TYPE CONSTRUCT
+		DiamondTrap(std::string name);
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
+		//COPY CONSTRUCT
+		DiamondTrap(const DiamondTrap& diamondtrap);
+
+		//DESTUCT
+		~DiamondTrap();
+
+/******************************************************************************/
+/*                        NON-MUMBER FUNCTIONS                                */
+/******************************************************************************/
+
+		//ASSIGNEMENT OPERATOR
+		DiamondTrap& operator= (const DiamondTrap& obj);
+
+		void whoAmI();
+};
 
 #endif
