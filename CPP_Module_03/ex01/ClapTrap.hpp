@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:25:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 09:02:08 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:31:34 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap{
 
-	private:
+	protected:
 
 		std::string name;
 	unsigned int hit;
@@ -25,8 +25,9 @@ class ClapTrap{
 	unsigned int damage;
 
 	public:
-
+		
 		ClapTrap();
+		ClapTrap(int i); 
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap &clap);
 		~ClapTrap();

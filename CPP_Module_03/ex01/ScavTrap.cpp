@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:16:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:15:26 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:36:09 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 
 	//Default Construct
-ScaveTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap(0)
 {
 	std::cout << "ScavTrap Default construct called" << std::endl;
 	hit = 100;
@@ -24,7 +24,7 @@ ScaveTrap::ScavTrap()
 	// Type Construct
 ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << " ScavTrap Type construct called" << std::endl;
+	std::cout << "ScavTrap construct called" << std::endl;
 	hit = 100;
 	energy = 50;
 	damage = 20;
@@ -41,7 +41,7 @@ ScavTrap::ScavTrap(const ScavTrap &scavtrap)
 	// Destruct
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Destruct called" << std::endl;
+	std::cout << "ScavTrap Destruct called" << std::endl;
 }
 
 	// Assinement operator
@@ -51,4 +51,20 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& obj)
 	this->energy = obj.energy;
 	this->damage = obj.damage;
 	return (*this);
-}	
+}
+
+void ScavTrap::guardGate()
+{
+	std::cout << " ScavTrap is now in Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+     if (hit > 0 && energy > 0)
+ {
+         std::cout << "ScavTrap " << name << " attacks " << target << " , causing " << damage << " points of damage!" << std::endl;
+         energy -= 1;
+     }
+     else
+         std::cout << "ScavTrap " << name << " can’t do anything" << std::endl;
+}

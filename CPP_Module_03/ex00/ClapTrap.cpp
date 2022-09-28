@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:12:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:02:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ ClapTrap::ClapTrap(std::string _name)
 ClapTrap::ClapTrap()
 {
 	std::cout << "Default construct called" << std::endl;
-	name = "D.player";
 	hit = 10;
 	energy = 10;
 	damage = 0;

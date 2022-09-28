@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 09:02:28 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:47:57 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 	// Type construct
 ClapTrap::ClapTrap(std::string _name)
 {
-	std::cout << "construct called" << std::endl;
+	std::cout << "ClapTrap construct called" << std::endl;
 	hit = 10;
 	energy = 10;
 	damage = 0;
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string _name)
 	//Default construc
 ClapTrap::ClapTrap()
 {
-	std::cout << "Default construct called" << std::endl;
+	std::cout << "Claptrap default construct called" << std::endl;
 	name = "D.player";
 	hit = 10;
 	energy = 10;
@@ -37,10 +37,17 @@ ClapTrap::ClapTrap(ClapTrap &clap)
 	std::cout << "Copy construct called" << std::endl;
 	*this = clap;
 }
+
+	//Void construct
+ClapTrap::ClapTrap(int) 
+{
+//	(void)i;
+}
+
 	// destructor
 ClapTrap::~ClapTrap()
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 
