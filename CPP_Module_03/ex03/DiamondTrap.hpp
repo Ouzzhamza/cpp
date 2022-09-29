@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:47:56 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/29 12:07:07 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:28:56 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		//ASSIGNEMENT OPERATOR
 		DiamondTrap& operator= (const DiamondTrap& obj);
 
-	//	void attack();
+		void attack(const std::string& target);
 		void whoAmI();
 };
 

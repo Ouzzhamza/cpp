@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:05:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/21 19:07:56 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 20:14:52 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		return (0);
 	}
 	std::ifstream infile(av[1]);
-	std::string s = strtok(av[1], ".");
+	std::string s = av[1];
 	std::ofstream outfile(s + ".replace");
 	if (infile.is_open())
    	{

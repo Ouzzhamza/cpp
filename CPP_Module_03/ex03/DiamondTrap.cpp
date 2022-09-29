@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:47:44 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/29 12:43:29 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:28:47 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ DiamondTrap::DiamondTrap(std::string name)
 	std::cout << "DimondTrap construct called" << std::endl;
 	ClapTrap::name = name + "_clap_name";
 	this->name = name;
-	this->hit = FragTrap::hit;
-	this->energy = ScavTrap::energy;
-	this->damage = FragTrap::damage;
+	hit = this->FragTrap::hit;
+	energy = this->ScavTrap::energy;
+	damage = this->FragTrap::damage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& diamondtrap)
@@ -52,4 +52,9 @@ DiamondTrap& DiamondTrap::operator= (const DiamondTrap& obj)
 void DiamondTrap::whoAmI()
 {
 	std::cout << "I'm " << name << " and my ClapTrap name is " << ClapTrap::name << std::endl;
+}
+
+void DiamondTrap::attack(const std::string& target)
+{
+	this->ScavTrap::attack(target);
 }

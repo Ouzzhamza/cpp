@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 10:09:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/18 16:29:22 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 20:01:14 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ Account::Account(int initial_diposit)
 {
     _displayTimestamp();
 	_accountIndex = _nbAccounts++;
+	_nbWithdrawals = 0;
+	_nbDeposits = 0;
     _amount = initial_diposit;
    _totalAmount += _amount;	
     std::cout << "index:"   << _accountIndex
@@ -112,7 +114,7 @@ bool    Account::makeWithdrawal( int withdrawal )
 				  << ";p_amount:" << _amount
 				  << ";withdrawal:" << withdrawal
 				  << ";amount:" << _amount - withdrawal 
-				  << "nb_withdrawals:" << _nbWithdrawals << std::endl;
+				  << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 		_amount -= withdrawal;
 		_totalAmount -= withdrawal;
 		_totalNbWithdrawals++;

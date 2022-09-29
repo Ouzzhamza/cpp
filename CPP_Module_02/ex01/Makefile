@@ -1,8 +1,10 @@
-CC = clang++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Fixed.cpp 
+
+HEADER = Fixed.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -13,7 +15,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.cpp
+%.o : %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :

@@ -6,17 +6,16 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 20:08:05 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/29 12:38:47 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:41:34 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FragTRAP_HPP
 #define FragTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include "FragTrap.hpp"
 
-
-class FragTrap : virtual public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	public:
 

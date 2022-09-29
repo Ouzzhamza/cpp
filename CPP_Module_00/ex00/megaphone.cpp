@@ -6,12 +6,11 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:42:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/07/23 16:15:23 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:44:49 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    <iostream>
-#include    <cctype>
 
 using namespace std;
 
@@ -28,7 +27,7 @@ int main(int ac, char **av)
         {
             j = -1;
             while (av[i][++j])
-                std::cout << static_cast<char> (toupper (av[i][j])) ;
+                std::cout << (char) (toupper (av[i][j])) ;
             i++;
             std::cout << std::endl;
         }

@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:36:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/29 13:02:37 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:03:51 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,18 @@ int main()
 	std::cout << Ramses.getter("hit") << std::endl;	
 	Alexander.highFivesGuys();*/
 	
-	ClapTrap first("first");
-	ScavTrap second ("second");
-	FragTrap third ("third");
-	DiamondTrap me("me");
 	std::cout << GREEN "\t" << "DIAMOND CLASS" << RESET << std::endl;
-	std::cout << "Diamond class " << me.getter("hit") << "Frag class " << third.getter ("hit") <<  std::endl;
-	std::cout << "Diamond class " << me.getter("energy") <<  "Scav class " << second.getter ("energy") <<  std::endl; 
-	std::cout << "Diamond class " << me.getter("damage") <<  "Frag class " << third.getter("damage") << std::endl;
-	me.whoAmI();
+
+	DiamondTrap Boot1("Boot1");
+	DiamondTrap Boot2("Boot2");
+	Boot1.setter("damage", 5);
+	Boot2.attack("Ramses");
+	Boot2.takeDamage(Boot1.getter("damage"));
+	std::cout << Boot2.getter("hit") << std::endl;
+	Boot2.beRepaired(2);
+	std::cout << Boot2.getter("hit") << std::endl;
+	Boot1.whoAmI();
+	Boot1.attack("");
 	
 	return (0);
 }
