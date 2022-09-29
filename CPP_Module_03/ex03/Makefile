@@ -6,7 +6,7 @@ SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 all : $(NAME)
 

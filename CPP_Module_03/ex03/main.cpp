@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:36:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 22:19:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:02:37 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,14 @@ int main()
 	std::cout << Ramses.getter("hit") << std::endl;	
 	Alexander.highFivesGuys();*/
 	
+	ClapTrap first("first");
+	ScavTrap second ("second");
+	FragTrap third ("third");
 	DiamondTrap me("me");
 	std::cout << GREEN "\t" << "DIAMOND CLASS" << RESET << std::endl;
+	std::cout << "Diamond class " << me.getter("hit") << "Frag class " << third.getter ("hit") <<  std::endl;
+	std::cout << "Diamond class " << me.getter("energy") <<  "Scav class " << second.getter ("energy") <<  std::endl; 
+	std::cout << "Diamond class " << me.getter("damage") <<  "Frag class " << third.getter("damage") << std::endl;
 	me.whoAmI();
 	
 	return (0);
