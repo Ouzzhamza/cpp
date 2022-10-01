@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 11:24:28 by houazzan         ###   ########.fr       */
+/*   Created: 2022/10/01 15:11:03 by houazzan          #+#    #+#             */
+/*   Updated: 2022/10/01 17:23:54 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+#define _MAX 100
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal {
+class Brain {
 
+	protected:
+		std::string ideas[_MAX];
 	public:
-		Dog(); // Default constructor
-		Dog(const Dog& animal); // Copy constructor
-		Dog(std::string type); // Type constructor
-		~Dog(); // Destructor
-		Dog& operator=(const Dog& animal); // Assignement operator
+		Brain(); // Default construct 
+		Brain(const Brain& brain); // Copie construct
+		~Brain(); // Destruct
 
-		void makeSound() const;
+		Brain& operator=(const Brain& brain); // Overloading operatur
 };
 
 
-#endif
+#endif 

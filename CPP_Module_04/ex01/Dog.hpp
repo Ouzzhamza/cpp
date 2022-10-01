@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 11:24:28 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:14:45 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
 
@@ -25,6 +26,8 @@ class Dog : public Animal {
 		Dog& operator=(const Dog& animal); // Assignement operator
 
 		void makeSound() const;
+
+		Brain *_brain;
 };
 
 

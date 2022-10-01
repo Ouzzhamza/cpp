@@ -1,53 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 13:36:06 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:15:48 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-Animal::Animal() // Default constructor
+
+Cat::Cat() // Default constructor
 {
-	std::cout << "Wolf Default construct called" << std::endl;
-	this->type = "Wolf";
+	std::cout << "Cat Default construct called" << std::endl;
+	this->_brain = new Brain();
+	this->type = "Cat";
 }
 
-Animal::Animal(const Animal& animal) // Copy constructor
+Cat::Cat(const Cat& animal) // Copy constructor
 {
 	std::cout << this->type << " Copy construct called" << std::endl;
 	*this = animal;
 }
 
-Animal::Animal(std::string type) // Type constructor
+Cat::Cat(std::string type) // Type constructor
 {
 	std::cout << this->type << " Type construct called" << std::endl;
 	this->type = type;
 }
 
-Animal& Animal::operator= (const Animal& animal) // Assinement operator 
+Cat& Cat::operator= (const Cat& animal) // Assinement operator 
 {
 	this->type = animal.type;
 	return (*this);
 }
 
-Animal::~Animal() // Destructor 
+Cat::~Cat() // Destructor 
 {
-	std::cout << "Wolf Destructor called" << std::endl;
+	std::cout << this->type << " Destructor called" << std::endl;
+	delete (_brain);
 }
 
-
-const std::string& Animal::getType() const 
+void Cat::makeSound() const
 {
-	return (type);
-}	
-
-void Animal::makeSound() const
-{
-	std::cout << "Howling" << std::endl;
+	std::cout << "Meowing" << std::endl;
 }

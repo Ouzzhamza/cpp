@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 11:24:28 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:57:01 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal {
+class  Cat : public Animal {
 
 	public:
-		Dog(); // Default constructor
-		Dog(const Dog& animal); // Copy constructor
-		Dog(std::string type); // Type constructor
-		~Dog(); // Destructor
-		Dog& operator=(const Dog& animal); // Assignement operator
+		Cat(); // Default constructor
+		Cat(const Cat& animal); // Copy constructor
+		Cat (std::string type); // Type constructor
+		~Cat(); // Destructor
+		Cat& operator=(const Cat& animal); // Assignement operator
 
 		void makeSound() const;
+	private:
+		Brain *_brain;
 };
 
 

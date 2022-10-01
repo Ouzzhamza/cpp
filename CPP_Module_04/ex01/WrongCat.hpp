@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 11:24:28 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 11:38:39 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal {
+class  WrongCat : public WrongAnimal {
 
 	public:
-		Dog(); // Default constructor
-		Dog(const Dog& animal); // Copy constructor
-		Dog(std::string type); // Type constructor
-		~Dog(); // Destructor
-		Dog& operator=(const Dog& animal); // Assignement operator
+		WrongCat(); // Default constructor
+		WrongCat(const WrongCat& animal); // Copy constructor
+		WrongCat (std::string type); // Type constructor
+		~WrongCat(); // Destructor
+		WrongCat& operator=(const WrongCat& animal); // Assignement operator
 
 		void makeSound() const;
 };

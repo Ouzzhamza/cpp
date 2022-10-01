@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 11:24:28 by houazzan         ###   ########.fr       */
+/*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
+/*   Updated: 2022/10/01 18:22:48 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-class Dog : public Animal {
+/*void leak()
+{
+	system("leaks Poly2");
+}*/
 
-	public:
-		Dog(); // Default constructor
-		Dog(const Dog& animal); // Copy constructor
-		Dog(std::string type); // Type constructor
-		~Dog(); // Destructor
-		Dog& operator=(const Dog& animal); // Assignement operator
+int main()
+{	
+	const Animal *meta[4];
 
-		void makeSound() const;
-};
+	for (int i = 0; i < 4; i++)
+	{
+		if (i < 2)
+			meta[i] = new Cat();
+		else
+			meta[i] = new Dog();
+	}
 
-
-#endif
+	for(int i = 0; i < 4; i++)
+	{
+		delete(meta[i]);
+	}
+//	atexit(leak);
+	return 0;
+}

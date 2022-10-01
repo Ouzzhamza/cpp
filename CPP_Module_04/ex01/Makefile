@@ -3,13 +3,13 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 
 HEADER = Animal.hpp Dog.hpp Cat.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = Poly
+NAME = Poly2
 
 all : $(NAME)
 
