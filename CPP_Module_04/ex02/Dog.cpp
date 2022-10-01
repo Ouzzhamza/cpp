@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:38:58 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 19:39:17 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ Dog::~Dog() // Destructor
 {
 	std::cout << this->type << " Destructor called" << std::endl;
 	delete (_brain);
-
 }
 
 void Dog::makeSound() const

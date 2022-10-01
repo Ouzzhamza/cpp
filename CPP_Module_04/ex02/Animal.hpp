@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:53:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 20:00:21 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ class Animal {
 		Animal& operator=(const Animal& animal); // Assignement operator
 		
 		const std::string& getType() const;
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 };
+
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      /* Red */

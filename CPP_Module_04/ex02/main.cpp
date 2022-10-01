@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 20:01:40 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 19:51:46 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,35 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
-#define NUMBER_ANIMALS 4
+/*void leak()
+{
+	system("leaks Abstract");
+}*/
+
+#define NUMBER_ANIMALS 6
 
 // Code commented on purpose to uncomment during evaluation and show the
 // compilation errors linked to the instantiation of an abstract class
 
-/*void leak()
-{
-	system("leaks Poly2");
-}*/
+static void test_makeSound(void) {
+	std::cout  << GREEN << "TEST MAKE_SOUND WITH ABSTRACT CLASS" << RESET << std::endl;
+//	Animal const* meta = new Animal();
+	Animal const* i = new Dog();
+	Animal const* j = new Cat();
 
-static void array(void) {
-	std::cout << GREEN << "TEST ARRAY" << RESET <<std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+//	meta->makeSound();
 
-	Animal const* animals[NUMBER_ANIMALS];
-
-	for (int i = 0; i < NUMBER_ANIMALS; i++) {
-		if (i % 2 == 0) {
-			animals[i] = new Dog();
-		} else {
-			animals[i] = new Cat();
-		}
-	}
-
-	for (int i = 0; i < NUMBER_ANIMALS; i++) {
-		delete animals[i];
-	}
+//	delete meta;
+	delete i;
+	delete j;
 }
 
 int main(void) {
-	array();
-	std::cout << std::endl;
+	test_makeSound();
 //	atexit(leak);
 	return 0;
 }

@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:53:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 11:37:02 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 
-class Animal {
+class WrongAnimal {
 
 	protected:
 		std::string type;
 	
 	public:
-		Animal(); // Default constructor
-		Animal(const Animal& animal); // Copy constructor
-		Animal(std::string type); // Type constructor
-		virtual ~Animal(); // Destructor
-		Animal& operator=(const Animal& animal); // Assignement operator
+		WrongAnimal(); // Default constructor
+		WrongAnimal(const WrongAnimal& animal); // Copy constructor
+		WrongAnimal(std::string type); // Type constructor
+		virtual ~WrongAnimal(); // Destructor
+		WrongAnimal& operator=(const WrongAnimal& animal); // Assignement operator
 		
 		const std::string& getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
 
 #endif

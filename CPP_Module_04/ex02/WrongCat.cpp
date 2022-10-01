@@ -1,50 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:38:58 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/01 11:30:04 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog() // Default constructor
+WrongCat::WrongCat() // Default constructor
 {
-	std::cout << "Dog Default construct called" << std::endl;
-	this->_brain = new Brain();
-	this->type = "Dog";
+	std::cout << "WrongCat Default construct called" << std::endl;
+	this->type = "WrongCat";
 }
 
-Dog::Dog(const Dog& animal) // Copy constructor
+WrongCat::WrongCat(const WrongCat& animal) // Copy constructor
 {
 	std::cout << this->type << " Copy construct called" << std::endl;
 	*this = animal;
 }
 
-Dog::Dog(std::string type) // Type constructor
+WrongCat::WrongCat(std::string type) // Type constructor
 {
 	std::cout << this->type << " Type construct called" << std::endl;
 	this->type = type;
 }
 
-Dog& Dog::operator= (const Dog& animal) // Assinement operator 
+WrongCat& WrongCat::operator= (const WrongCat& animal) // Assinement operator 
 {
 	this->type = animal.type;
 	return (*this);
 }
 
-Dog::~Dog() // Destructor 
+WrongCat::~WrongCat() // Destructor 
 {
 	std::cout << this->type << " Destructor called" << std::endl;
-	delete (_brain);
-
 }
 
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Barking" << std::endl;
+	std::cout << "Meowing" << std::endl;
 }
