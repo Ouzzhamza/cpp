@@ -38,16 +38,6 @@ void Harl::error(void)
 }
 
 
-int type (std::string level)
-{
-	if (level == "DEBUG") return (1);
-	if (level == "INFO") return(2);
-	if (level == "WARNING") return (3);
-	if (level == "ERROR" ) return (4);
-	return (0);
-}
-
-
 void Harl::complain(std::string level)
 {
 	std::string str = "DEBUG INFO WARNING ERROR";
