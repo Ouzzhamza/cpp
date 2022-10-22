@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:01:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:53:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/22 15:00:09 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal {
 		Animal(const Animal& animal); // Copy constructor
 		Animal(std::string type); // Type constructor
 		virtual ~Animal(); // Destructor
-		Animal& operator=(const Animal& animal); // Assignement operator
+		Animal&  operator=(const Animal& animal); // Assignement operator
 		
 		const std::string& getType() const;
 		virtual void makeSound() const;

@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 19:38:47 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:51:07 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ Cat::Cat(std::string type) // Type constructor
 
 Cat& Cat::operator= (const Cat& animal) // Assinement operator 
 {
+	std::cout << "Cat" << std::endl;
+	(void) animal;
 	this->type = animal.type;
+	this->_brain = animal._brain;
 	return (*this);
 }
 

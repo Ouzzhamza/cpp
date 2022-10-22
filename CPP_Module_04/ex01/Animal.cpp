@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 13:36:06 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:47:02 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ Animal::Animal() // Default constructor
 
 Animal::Animal(const Animal& animal) // Copy constructor
 {
-	std::cout << this->type << " Copy construct called" << std::endl;
+	std::cout << this->type << "Copy construct called" << std::endl;
 	*this = animal;
 }
 
 Animal::Animal(std::string type) // Type constructor
 {
-	std::cout << this->type << " Type construct called" << std::endl;
+	std::cout << this->type << "Type construct called" << std::endl;
 	this->type = type;
 }
 
-Animal& Animal::operator= (const Animal& animal) // Assinement operator 
+Animal& Animal::operator= (const Animal& animal)// Assinement operator 
 {
-	this->type = animal.type;
+	std::cout << "Animal" << std::endl;
+	this->type =  animal.type;
 	return (*this);
 }
 

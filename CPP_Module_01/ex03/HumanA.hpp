@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 20:07:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 11:31:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:21:28 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ class HumanA{
 		void attack();
 		HumanA(std::string _name, Weapon &_weapon);
 		~HumanA();
-
-	
 };
 
 #endif

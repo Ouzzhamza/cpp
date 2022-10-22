@@ -6,14 +6,14 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:51:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/20 10:09:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:49:56 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# define MAX_CONTACTS_NB 2
+# define MAX_CONTACTS_NB 8
 # include  "Contact.hpp"
 
 class PhoneBook

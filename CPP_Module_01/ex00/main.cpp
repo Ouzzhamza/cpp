@@ -6,11 +6,19 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:11:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/29 20:04:13 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:36:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+
+//! Code commented on purpose to uncomment during evaluation and show the
+
+// void leak()
+// {
+// 	system("leaks BraiiiiiiinnnzzzZ");
+// }
 
 int main()
 {
@@ -18,5 +26,6 @@ int main()
 	Z1->announce();
 	randomChump("Zombie2");
 	delete Z1;
+	//atexit(leak);
 	return(0);
 }

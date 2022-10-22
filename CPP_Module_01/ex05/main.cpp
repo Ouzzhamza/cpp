@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:48:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 19:37:30 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/04 18:36:16 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int main ()
 	harl.complain("WARNING");
 	harl.complain("ERROR");
 //	harl.complain("");
-//	harl.complain("DEBUG");
 	return (0);
 }

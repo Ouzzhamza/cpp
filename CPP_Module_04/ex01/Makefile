@@ -9,7 +9,7 @@ HEADER = Animal.hpp Dog.hpp Cat.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = Poly2
+NAME =  World_on_fire
 
 all : $(NAME)
 
