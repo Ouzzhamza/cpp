@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/22 18:43:01 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:24:09 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,44 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
-#define NUMBER_ANIMALS 2
+#define NUMBER_ANIMALS 4
 
 // Code commented on purpose to uncomment during evaluation and show the
 // compilation errors linked to the instantiation of an abstract class
 
 /*void leak()
 {
-	system("leaks Wold_on_fire");
+	system("leaks World_on_fire");
 }*/
 
-static void array(void) {
+void array(void) {
 	std::cout << GREEN << "TEST ARRAY" << RESET <<std::endl;
 
 	Animal *animals[NUMBER_ANIMALS];
-	Animal *animal[NUMBER_ANIMALS];
 
 	for (int i = 0; i < NUMBER_ANIMALS; i++) {
-		animals[i] = new Dog();
-	for (int i = 0; i < NUMBER_ANIMALS; i++) {	
-			animal[i] = new Cat();
-		}
+		if (i < NUMBER_ANIMALS / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
 	}
-	animal[0] = animals[1];
-//	std::cout << animals[0]->getType() << std::endl;
-//	std::cout << animals[1]->getType() << std::endl;
-//	std::cout << animals[2]->getType() << std::endl;
-//	std::cout << animals[3]->getType() << std::endl;
-//		for (int i = 0; i < NUMBER_ANIMALS; i++) {
-//			delete animals[i];
-//	}
+	for (int i = 0; i < NUMBER_ANIMALS; i++)
+		delete (animals[i]);
+}
+
+void deep_copie_test(void) {
+
+		std::cout << GREEN << "TEST DEEP COPIE" << RESET << std::endl;
+
+		Cat a;
+		Cat b(a);
+		Dog c;
+		c = d;
 }
 
 int main(void) {
-	array();
+//	array();
+	deep_copie_test();
 	std::cout << std::endl;
 //	atexit(leak);
 	return 0;

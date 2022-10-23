@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/22 17:51:05 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:24:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ Dog::Dog(std::string type) // Type constructor
 
 Dog& Dog::operator= (const Dog& animal) // Assinement operator 
 {
-	(void) animal;
-	std::cout << "Dog" << std::endl;
+	Brain *temp =new Brain();
+	*temp = *animal._brain;	
+	this->_brain = temp;
 	this->type = animal.type;
-//	this->_brain = animal._brain;
 	return (*this);
 }
 

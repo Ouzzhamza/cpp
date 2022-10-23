@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/22 17:47:02 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:46:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Animal::Animal(std::string type) // Type constructor
 
 Animal& Animal::operator= (const Animal& animal)// Assinement operator 
 {
-	std::cout << "Animal" << std::endl;
 	this->type =  animal.type;
 	return (*this);
 }
