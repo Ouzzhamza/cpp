@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/23 18:24:09 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:59:03 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void deep_copie_test(void) {
 
 		Cat a;
 		Cat b(a);
-		Dog c;
-		c = d;
+		a = b;
 }
 
 int main(void) {

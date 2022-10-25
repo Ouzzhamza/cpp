@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:53 by houazzan          #+#    #+#             */
-/*   Updated: 2022/09/28 20:01:25 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:15:45 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ ClapTrap& ClapTrap::operator= (const ClapTrap& claptrap)
 	this->hit = claptrap.hit;
 	this->energy = claptrap.energy;
 	this->damage = claptrap.damage;
-   return (*this);	
+    return (*this);	
 }
 
 void ClapTrap::attack(const std::string &target)

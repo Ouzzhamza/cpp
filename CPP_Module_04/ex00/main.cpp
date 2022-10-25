@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/01 14:05:29 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:29:07 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
+/*void leak()
+{
+	system("leaks Poly");
+}*/
 
 int main()
 {
@@ -32,10 +36,11 @@ int main()
 	k->makeSound();
 	meta->makeSound();
 	beta->makeSound();
-/*	delete(meta);
+	delete(meta);
 	delete(beta);
 	delete(j);
 	delete(i);
-	delete(k);*/
+	delete(k);
+//	atexit(leak);
 	return 0;
 }
