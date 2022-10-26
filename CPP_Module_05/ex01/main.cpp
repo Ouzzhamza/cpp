@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/22 08:17:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:38:00 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void test_low()
 	std::cout << GREEN << "TESTING WITH LOW GRADE" << RESET <<std::endl;
 
 	try{
-		Bureaucrat low("Man", 151);
+		Bureaucrat low("Man", 50);
 		std::cout << "Name: " << low.getName() 
 					<< " Grade: " << low.getGrade() << std::endl;
 	}
@@ -82,6 +82,6 @@ int main()
 	//test_low();
 	//test_high();
 	//test_increment();
-	//test_decrement();
+	
 	return (0);
 }

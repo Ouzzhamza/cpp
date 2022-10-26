@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/04 17:49:47 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:48:26 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 		std::cout << "Setting the Bureaucrat and it's grade" << std::endl;
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const thro
+()
 {
 	return("the grade is to low");
 }
