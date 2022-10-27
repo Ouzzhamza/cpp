@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/04 17:49:47 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:54:58 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() : _name ("hamza")
 {
-	_grade = 1;
+	_grade = 5;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -28,7 +28,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 
 Bureaucrat& Bureaucrat::operator= (const Bureaucrat& obj)
 {
-	_grade = obj.getGrade();
+	this->_grade = obj._grade;
 	return(*this);
 }
 
@@ -56,6 +56,17 @@ void Bureaucrat::decrementGrade(void)
 	_grade++;
 	if (_grade > MIN_GRADE)
 		throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout << _name << "signed the form " << form.getName()  << std::endl;
+	}
+		catch (std::exception& e){
+			std::cout << _name << "can't sign the form " << form.getName() << "." << e.what() <<std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)

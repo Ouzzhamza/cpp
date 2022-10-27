@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/26 18:48:26 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:18:00 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 		std::cout << "Setting the Bureaucrat and it's grade" << std::endl;
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const thro
-()
+const char* Bureaucrat::GradeTooLowException::what() const throw ()
 {
 	return("the grade is to low");
 }

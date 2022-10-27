@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/26 16:38:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:39:58 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void test_low()
 	std::cout << GREEN << "TESTING WITH LOW GRADE" << RESET <<std::endl;
 
 	try{
-		Bureaucrat low("Man", 50);
-		std::cout << "Name: " << low.getName() 
-					<< " Grade: " << low.getGrade() << std::endl;
+		Form form("Man", 51, 10);
 	}
 	catch(std::exception& excp){
 		std::cout << excp.what() << std::endl;
@@ -31,29 +29,22 @@ void test_high()
 	std::cout << GREEN << "TESTING WITH HIGH GRADE" << RESET <<std::endl;
 
 	try{
-		Bureaucrat high("Woman", 1);
-		std::cout << "Name: " << high.getName()
-					<< " Grade: " << high.getGrade() << std::endl;
+		Form form ("Woman", 1, 20);
 	}
 	catch(std::exception& excp){
 		std::cout << excp.what() << std::endl;
 	}
 }
 
-void test_increment()
+void test_confirm_sign()
 {
 	std::cout << GREEN << "TESTING INCREMENTATION GRADE" << RESET <<std::endl;
-
-	try{
-		Bureaucrat boy("boy", 5);
-		while (1)
-		{
-			boy.incrementGrade();
-			std::cout << "Name: " << boy.getName()
-					<< " Grade: " << boy.getGrade() << std::endl;
-		}
+	try {
+		Bureaucrat me;
+		Form boy("bot", 4, 2);
+		boy.beSigned(me);
 	}
-	catch(std::exception& excp){
+	catch (std::exception& excp){
 		std::cout << excp.what() << std::endl;
 	}
 }
@@ -79,9 +70,9 @@ void test_decrement()
 
 int main()
 {
-	//test_low();
-	//test_high();
-	//test_increment();
+//	test_low();
+//	test_high();
+	test_confirm_sign();
 	
 	return (0);
 }

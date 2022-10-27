@@ -6,29 +6,27 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/04 18:44:19 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:40:23 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Form.hpp"
 
-Form::Form() : g_sign(1) g_execute(1)
+Form::Form() : _name("form"), g_sign(1), g_execute(1)
 {
-	name = "form";
+	sign = false;
 }
 
-Form::~Form()
-{
-}
+Form::~Form(){}
 
-Form::Form(const Form& obj)
+Form::Form(const Form& obj) : g_sign(obj.g_sign), g_execute(obj.g_execute)
 {
 	*this = obj;
 }
 
 Form& Form::operator= (const Form& obj)
 {
-	_grade = obj.getGrade();
+	sign = obj.sign;
 	return(*this);
 }
 
@@ -38,50 +36,61 @@ const std::string& Form::getName(void) const
 }
 
 
-int Form::getGrade(void) const
+int Form::getGsign(void) const
 {
-	return (_grade);
-}
-
-void Form::incrementGrade(void)
-{
-	_grade--;
-	if (_grade < MAX_GRADE)
-		throw GradeTooLowException();
+	return (g_sign);
 }
 
 
-void Form::decrementGrade(void)
+int Form::getGexecute(void) const
 {
-	_grade++;
-	if (_grade > MIN_GRADE)
-		throw GradeTooLowException();
+	return (g_execute);
 }
 
-Form::Form(std::string const name, int grade) : _name(name)
+bool Form::getSign(void) const
 {
-	_grade = grade;
-	if (grade < MAX_GRADE)
+	return (sign);
+}
+
+Form::Form(std::string const name, const int _g_sign, const int _g_execute) : _name(name), g_sign(_g_sign), g_execute(_g_execute)
+{
+	sign = false;
+	if (this->g_sign < MAX_GRADE)
 		throw GradeTooHighException();
-	else if (grade > MIN_GRADE)
+	else if (g_sign > MIN_GRADE)
 		throw GradeTooLowException();
+	else if (g_execute < MAX_GRADE)
+		throw GradeTooHighException();
+	else if (g_execute > MIN_GRADE)
+		throw GradeTooLowException();
+	std::cout << *this << std::endl;
+}
+
+void Form::beSigned(Bureaucrat& obj)
+{
+	if (this->g_sign > obj.getGrade()){
+		sign = true;
+		std::cout << *this << std::endl;
+	}
 	else
-		std::cout << "Setting the Form and it's grade" << std::endl;
+		throw GradeTooLowException();
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return("the grade is to low");
+	return("The Form grade is too low!");
 }
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return("the grade is to high");
+	return("The Form grade is too high!");
 }
 
 std::ostream& operator<< (std::ostream& output, const Form& obj)
 {
-	output << obj.getName();
-   	output << obj.getGrade();
+	output << "The form " << obj.getName()
+	<< (obj.getSign() ? " is signed." : " isn't signed. ")
+   	<< "It's grade to sign is : " << obj.getGsign()
+   	<< " and it's grade to execute is : " << obj.getGexecute();
 	return (output);
 }

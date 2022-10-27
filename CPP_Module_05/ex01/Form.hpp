@@ -6,37 +6,38 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:49:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/04 18:34:15 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:45:56 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include	<iostream>
 #include	"Bureaucrat.hpp"
+#include	<iostream>
 
+class Bureaucrat;
 class Form {
 
 	private:
 
-		std::string _name;
+		std::string const _name;
 		bool sign;
 		const int g_sign;
 		const int g_execute;
 
 	public:
-
 		Form();
-		Form(std::string _name, const int g_sign, const int g_execute);
+		Form(std::string const name, const int _g_sign,  const int _g_execute);
 		~Form();
 		Form(const Form& obj);
 		Form& operator= (const Form& obj);
 
 
-		std::string& getName (void) const;
+		const std::string& getName (void) const;
 		int getGsign(void) const;
 		int getGexecute(void) const;
+		bool getSign(void) const;
 
 		void beSigned(Bureaucrat& obj);
 
@@ -48,6 +49,16 @@ class Form {
 		class GradeTooLowException : public  std::exception{
 			public :
 				const char* what() const throw();
+		};
+
+		class ExecuteToolowExeption : public std::exception{
+			public :
+				const char * what() const throw();
+		};
+
+		class ExecuteToohighExeption : public std::exception{
+			public :
+				const char * what() const throw();
 		};
 };
 

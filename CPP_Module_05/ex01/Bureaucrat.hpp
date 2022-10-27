@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:49:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/04 19:03:40 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:42:00 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #define MAX_GRADE 1
-#define MIN_GRADE 150
+#define MIN_GRADE 50
 
 #include	<iostream>
 #include	<exception>
+#include	"Form.hpp"
 
+class Form;
 
 class Bureaucrat {
 
@@ -29,7 +31,7 @@ class Bureaucrat {
 	public:
 
 		Bureaucrat();
-		Bureaucrat(std::string const _name, int _grade);
+		Bureaucrat(std::string const name, int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator= (const Bureaucrat& obj);
@@ -41,6 +43,7 @@ class Bureaucrat {
 
 		void incrementGrade(void);
 		void decrementGrade(void);
+		void signForm(Form& form);
 
 		class GradeTooHighException : public std::exception{
 			public : 
