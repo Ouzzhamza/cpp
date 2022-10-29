@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/27 18:39:58 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:46:12 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,10 @@ void test_confirm_sign()
 	try {
 		Bureaucrat me;
 		Form boy("bot", 4, 2);
-		boy.beSigned(me);
+	//	boy.beSigned(me);
+		me.signForm(boy);
 	}
 	catch (std::exception& excp){
-		std::cout << excp.what() << std::endl;
-	}
-}
-
-
-void test_decrement()
-{
-	std::cout << GREEN << "TESTING DECREMENTATION GRADE" << RESET <<std::endl;
-
-	try{
-		Bureaucrat girl("girl", 145);
-		while (1)
-		{
-			girl.decrementGrade();
-			std::cout << "Name: " << girl.getName()
-					<< " Grade: " << girl.getGrade() << std::endl;
-		}
-	}
-	catch(std::exception& excp){
 		std::cout << excp.what() << std::endl;
 	}
 }

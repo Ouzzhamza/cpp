@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:42:54 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/25 17:59:03 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/29 09:06:10 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 // Code commented on purpose to uncomment during evaluation and show the
 // compilation errors linked to the instantiation of an abstract class
 
-/*void leak()
+void leak()
 {
 	system("leaks World_on_fire");
-}*/
+}
 
 void array(void) {
 	std::cout << GREEN << "TEST ARRAY" << RESET <<std::endl;
@@ -37,6 +37,7 @@ void array(void) {
 		else
 			animals[i] = new Cat();
 	}
+	*animals[2] = *animals[3];
 	for (int i = 0; i < NUMBER_ANIMALS; i++)
 		delete (animals[i]);
 }
@@ -46,14 +47,16 @@ void deep_copie_test(void) {
 		std::cout << GREEN << "TEST DEEP COPIE" << RESET << std::endl;
 
 		Cat a;
+		Dog c;
+		Dog d(c);
 		Cat b(a);
-		a = b;
+		//a = b;
 }
 
 int main(void) {
-//	array();
+	array();
 	deep_copie_test();
 	std::cout << std::endl;
-//	atexit(leak);
+	atexit(leak);
 	return 0;
 }

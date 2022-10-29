@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/24 10:55:17 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/29 09:06:24 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Dog& Dog::operator= (const Dog& animal) // Assinement operator
 {
 	Brain *temp =new Brain();
 	*temp = *animal._brain;
-	delete _brain;	
 	this->_brain = temp;
 	this->type = animal.type;
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:06:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/24 10:57:25 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/29 09:06:45 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Cat& Cat::operator= (const Cat& animal) // Assinement operator
 {
 	Brain *temp = new Brain();
 	*temp = *animal._brain;
-	delete _brain;
 	this->_brain = temp;
 	this->type = animal.type;
 	return (*this);
