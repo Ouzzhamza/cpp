@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:49:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/31 15:13:52 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:46:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Bureaucrat {
 		void incrementGrade(void);
 		void decrementGrade(void);
 		void signForm(Form& form);
+		void executeForm(Form const & form);		
 
 		class GradeTooHighException : public std::exception{
 			public : 
