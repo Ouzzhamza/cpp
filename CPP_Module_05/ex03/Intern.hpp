@@ -16,5 +16,25 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Form.hpp"
+
+
+class Intern
+{
+	public :
+		
+		Intern();
+		~Intern();
+		Intern(Intern const& obj);
+		Intern& operator= (Intern const& obj);
+		
+		Form* makeForm(std::string const& form, std::string const& target);
+		Form* makeShrubberyForm(std::string const& form, std::string const& target);
+		Form* makeRobotForm(std::string const& form, std::string const& target);
+		Form* makePresidentForm(std::string const& form, std::string const& target);
+
+
+
+
 
 #endif
