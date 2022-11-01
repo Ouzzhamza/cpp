@@ -6,14 +6,14 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:49:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/31 15:13:52 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/01 17:02:36 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #define MAX_GRADE 1
-#define MIN_GRADE 50
+#define MIN_GRADE 150
 
 #include	<iostream>
 #include	<exception>

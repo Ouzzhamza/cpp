@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:49:26 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/27 17:45:56 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/01 17:01:56 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,6 @@ class Form {
 				const char* what() const throw();
 		};
 
-		class ExecuteToolowExeption : public std::exception{
-			public :
-				const char * what() const throw();
-		};
-
-		class ExecuteToohighExeption : public std::exception{
-			public :
-				const char * what() const throw();
-		};
 };
 
 std::ostream& operator<< (std::ostream& ouput, const Form& obj);

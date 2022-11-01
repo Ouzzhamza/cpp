@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:38:56 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/01 12:11:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:52:42 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
+#include <random>
 
-class ShrubberyCreationForm : public Form
+class RobotomyRequestForm : public Form
 {
 	private:
 		std::string target;
 	public:
-		ShrubberyCreationForm(void);
-		~ShrubberyCreationForm(void);
-		ShrubberyCreationForm(std::string const& target);
-		ShrubberyCreationForm(ShrubberyCreationForm const& obj);
-		ShrubberyCreationForm&	operator= (ShrubberyCreationForm const& obj);
+		RobotomyRequestForm(void);
+		~RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string const& target);
+		RobotomyRequestForm(RobotomyRequestForm const& obj);
+		RobotomyRequestForm&	operator= (RobotomyRequestForm const& obj);
 		void executeSpe(void) const;
 };
 

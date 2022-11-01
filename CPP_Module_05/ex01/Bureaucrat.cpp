@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/31 15:15:09 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:29:27 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::signForm(Form& form)
 {
-	std::cout << "here" << std::endl;
 	try {
 		form.beSigned(*this);
 		std::cout << _name << "signed the form " << form.getName()  << std::endl;
