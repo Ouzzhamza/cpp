@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/01 19:32:50 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/02 12:29:05 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void Sh_unvalid_signe(void)
 {
@@ -61,9 +62,18 @@ void Pardon_test()
 
 int main()
 {
-	Sh_unvalid_signe();
-	Sh_unvalid_execute();
-	Robot_test();
-	Pardon_test();	
+	Intern someRandomIntern;
+	Form* form;
+
+	form = someRandomIntern.makeForm("presidential pardon", "Bender");
+	delete form;
+	std::cout << std::endl;
+	form = someRandomIntern.makeForm("robotomy request", "Bender");
+	delete form;
+	std::cout << std::endl;
+	form = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	delete form;
+	std::cout << std::endl;
+	form = someRandomIntern.makeForm("earth destruction request", "Bender");
 	return (0);
 }
