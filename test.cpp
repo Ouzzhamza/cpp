@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Char.hpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 14:42:46 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/02 14:46:37 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/03 15:53:41 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/03 19:37:46 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHAR_HPP
-#define CHAR_HPP
-
 #include <iostream>
+#include <sstream>
+#include <iomanip>
+int main() {
+	long double a = .0;
+	std::stringstream("235000.54") >> a;
+	//os << "2147483648\n";
+	std::cout << std::setprecision(2) << a;	
+}
 
-class Char {
-	
-	public :
-		
-		Char();
-		Char(Char const& obj);
-		~Char();
-		Char& operator= (Char const& obj);
-
-};
-
-
-#endif
