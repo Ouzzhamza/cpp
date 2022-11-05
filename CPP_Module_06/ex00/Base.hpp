@@ -12,11 +12,14 @@
 
 #ifndef BASE_HPP
 #define BASE_HPP
+#define MAX_INT 2147483647
+#define MIN_INT -2147483648
 
-#include <iostrem>
+#include <iostream>
+#include <sstream>
 
 class Base {
-	pribate :
+	public :
 
 		std::string str_to_convert;
 		static std::string type;
@@ -27,7 +30,8 @@ class Base {
 		~base();
 		Base(Base const& obj);
 		Base& operator= (Base const& obj);
-		static detect_type(static std::string type, std::string str_to_convert);
+		void setStr(std::string const& str);
+		static detect_type(std::string str_to_convert);
 }
 
 

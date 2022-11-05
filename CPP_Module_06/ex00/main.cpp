@@ -10,15 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+
+#include "Base.hpp"
 
 int main(int ac, char **av)
 {
+	Base  cast;
 	if (ac != 2)
 		std::cout << "Invalid Number of argument" std::endl;
 	else
+	{
+		cast.detect_type(av[1]);
+		std::cout << getType << std::endl;
+	}
 		// call char 
-		// call int 
+		// call int
 		// call float
 		// call double
 		//
