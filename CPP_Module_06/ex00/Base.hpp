@@ -41,16 +41,23 @@ class Base {
 		void setType(std::string);
 		std::string getType(void);
 		void detect_type(void);
+		void print_type(void);
 		void convert(void);
 		void to_Int(void);
 		void to_Char(void);
 		void to_Float(void);
 		void to_Double(void);
+		void print_nan();
+		void print_nanf();
+		void print_int();
+		void print_char();
+		void print_double();
+		void print_float();
+		bool isInt(std::string str);
+		bool isDouble (std::string str);
+		bool isFloat(std::string str);
+		int apparence(std::string s, char c);
+
 };
-
-bool isInt(std::string str);
-bool isDouble (std::string str);
- bool isFloat(std::string str);
- int apparence(std::string s, char c);
-
+ 
 #endif

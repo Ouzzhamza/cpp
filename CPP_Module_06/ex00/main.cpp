@@ -23,10 +23,7 @@ int main(int ac, char **av)
 		cast.setType(av[1]);
 		cast.detect_type();
 		cast.convert();
+		cast.print_type();
 	}
-		// call char 
-		// call int
-		// call float
-		// call double
-		//
+	return (0);
 }

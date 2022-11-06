@@ -44,6 +44,8 @@ void Base::setType(std::string str)
 {
 	this->str_to_convert = str;
 }
+
+
 void Base::detect_type (void)
 {
 	if (str_to_convert.length() == 1 && isalpha(str_to_convert[0]))
@@ -52,10 +54,10 @@ void Base::detect_type (void)
 		type = "int";
 		
 	else if (isFloat(str_to_convert))
-		type = "fltt";
+		type = "float";
 
 	else if (isDouble(str_to_convert))
-		type = "dble";
+		type = "double";
 	else
 		type = "undefined value";
 }
@@ -66,12 +68,69 @@ void Base::convert(void)
 		to_Char();
 	else if (type == "int")
 		to_Int();
-	else if (type == "fltt")
+	else if (type == "float")
 		to_Float();
-	else if (type == "dble")
+	else if (type == "double")
 		to_Double();
+}
+
+void Base::print_type(void)
+{
+	if (type == "undefined value")
+		std::cout << type << std::endl;
+	else if (str_to_convert == "nan" || str_to_convert == "+inf"  || str_to_convert == "-inf")
+		print_nan();
+	else if (str_to_convert == "nanf" || str_to_convert == "+infff"  || str_to_convert == "-inff")
+		print_nanf();
 	else
-		std::cout << "undefined value" << std::endl;
+	{
+		print_char();
+		print_int();
+		print_double();
+		print_float();
+	}
+}
+
+
+void Base::print_char()
+{
+	if (isprint(chr))
+		std::cout << "char: " << chr << std::endl;
+	else
+		std::cout << "char; Non displayable" << std::endl;
+}
+
+void Base::print_int()
+{
+	std::cout << "int: " << intg << std::endl;;
+}
+
+void Base::print_double()
+{
+	std::cout << "double: " << std::fixed << std::setprecision(precision) << dbl << std::endl;
+}
+
+void Base::print_float()
+{
+	std::cout << "float: " << std::fixed << std::setprecision(precision) << flt << "f" << std::endl;
+}
+
+void Base::print_nan()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int:  impossible" << std::endl;
+	std::cout << "double: " <<  str_to_convert << std::endl;
+	std::cout << "float: " << str_to_convert + "f" << std::endl;
+}
+
+void Base::print_nanf()
+{
+	int i = str_to_convert.size() - 1;
+	str_to_convert.erase(i);
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int:  impossible" << std::endl;
+        std::cout << "double: " << str_to_convert << std::endl;
+        std::cout << "float: " << str_to_convert + "f" << std::endl;
 }
 
 
@@ -81,7 +140,6 @@ void Base::to_Char(void)
 	this->intg =  static_cast<int>(chr);
 	this->dbl = static_cast<double>(chr);
 	this->flt = static_cast<float>(chr);
-//	std::cout  << std::fixed  << std::setprecision(precision) << flt << std::endl;
 }
 
 void Base::to_Int(void)
@@ -90,7 +148,6 @@ void Base::to_Int(void)
 	this->chr = static_cast<char>(intg);
 	this->dbl = static_cast<double>(intg);
 	this->flt = static_cast<float>(intg);
-//	std::cout << this->flt << std::endl;	
 }
 
 void Base::to_Double(void)
@@ -98,16 +155,18 @@ void Base::to_Double(void)
 	std::stringstream(str_to_convert) >> this->dbl;
 	this->chr = static_cast<char>(dbl);
 	this->intg =  static_cast<int>(dbl);
-//	std::cout << intg  << std::endl;
+	this->flt = static_cast <float>(dbl);
 }
 
 void Base::to_Float(void)
 {
 	std::stringstream(str_to_convert) >> this->flt;
-	std::cout << flt << std::endl;
+	this->chr = static_cast<char>(flt);
+	this->intg = static_cast<int>(flt);
+	this->dbl = static_cast<double>(flt);
 }
 
-bool isInt(std::string str)
+bool Base::isInt(std::string str)
 {
 	long long  intger;
 	int i = 0;
@@ -129,7 +188,7 @@ bool isInt(std::string str)
 }
 
 
-bool isDouble (std::string str)
+bool Base::isDouble (std::string str)
 {
 	if (str == "-inf" || str == "+inf" || str == "nan")
 		return (true);
@@ -142,10 +201,11 @@ bool isDouble (std::string str)
 		if (str[0] != '-' && str[0] != '+' && str[i] != '.' && !isdigit(str[i]))
 			return (false);
 	}
+	precision = str_to_convert.length() - (str_to_convert.find(".") + 1);
 	return (true);
 }
 
-bool isFloat(std::string str)
+bool Base::isFloat(std::string str)
 {
 	if (str == "-inff" || str == "+inff" || str == "nanf")
 		return (true);
@@ -158,10 +218,11 @@ bool isFloat(std::string str)
 		if (str[0] != '-' && str[0] != '+' && str[i] != '.' && str[i] != 'f' && !isdigit(str[i]))
 			return (false);
 	}
+	precision = str_to_convert.length() - (str_to_convert.find(".") + 1);
 	return (true);
 }
 
-int apparence(std::string s, char c)
+int Base::apparence(std::string s, char c)
 {
     int n = 0;
 
