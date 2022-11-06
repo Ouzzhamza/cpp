@@ -20,11 +20,12 @@
 
 int main ()
 {
-  std::string str ("10.01");
-  int i = str.find(".");
-  int j = str.length();
-  std::cout << i << '\n';
-  std::cout << j << '\n';
-  return 0;
+	int a = 10;
+	int b = 10;
+	int *ptr1 = &a;
+	int *ptr2 = &b;
+       if (ptr1 == ptr2)
+	       std::cout << "hello" << std::endl;
+	return 0;
 }
 

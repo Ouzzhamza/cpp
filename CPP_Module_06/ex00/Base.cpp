@@ -48,7 +48,7 @@ void Base::setType(std::string str)
 
 void Base::detect_type (void)
 {
-	if (str_to_convert.length() == 1 && isalpha(str_to_convert[0]))
+	if (str_to_convert.length() == 1 && isprint(str_to_convert[0]))
 		type = "char";
 	else if (isInt(str_to_convert))
 		type = "int";
@@ -218,7 +218,7 @@ bool Base::isFloat(std::string str)
 		if (str[0] != '-' && str[0] != '+' && str[i] != '.' && str[i] != 'f' && !isdigit(str[i]))
 			return (false);
 	}
-	precision = str_to_convert.length() - (str_to_convert.find(".") + 1);
+	precision = str_to_convert.length() - (str_to_convert.find(".") + 2);
 	return (true);
 }
 
