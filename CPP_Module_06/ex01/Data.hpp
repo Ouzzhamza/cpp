@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 15:53:41 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 18:46:45 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/06 17:41:25 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/07 16:18:36 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DATA_HPP
+#define DATA_HPP
+
 #include <iostream>
-#include <time.h>
+#include <stdint.h>
 
-using namespace std;
-
-int main()
+struct Data
 {
-	srand(time(NULL));
-	cout<<rand()%3<<endl;            //choose random numbers from 0 to 99
-	std::cout << time(NULL) <<std::endl;
+	int i;
+	std::string str;
+};
 
-}
+uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);
+
+
+#endif

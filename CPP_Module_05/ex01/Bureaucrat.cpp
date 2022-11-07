@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/01 18:29:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/06 21:33:55 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Bureaucrat::incrementGrade(void)
 {
 	_grade--;
 	if (_grade < MAX_GRADE)
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 }
 
 

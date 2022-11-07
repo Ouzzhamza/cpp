@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/02 12:29:05 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/06 21:46:27 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ void Pardon_test()
 	std::cout << std::endl;
 }
 
+
+// void leak()
+// {
+// 	system("leaks Form_making");
+// }
+
 int main()
 {
 	Intern someRandomIntern;
@@ -75,5 +81,7 @@ int main()
 	delete form;
 	std::cout << std::endl;
 	form = someRandomIntern.makeForm("earth destruction request", "Bender");
+	delete form;
+	//atexit(leak);
 	return (0);
 }

@@ -5,25 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 14:14:19 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/05 18:03:20 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/06 17:41:43 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/07 16:18:43 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Data.hpp"
 
-#include "Base.hpp"
-
-int main(int ac, char **av)
+uintptr_t serialize(Data *ptr)
 {
-	Base  cast;
-	if (ac != 2)
-		std::cout << "Invalid Number of argument" << std::endl;
-	else
-	{
-		cast.setType(av[1]);
-		cast.detect_type();
-		cast.convert();
-		cast.print_type();
-	}
-	return (0);
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+
+Data *deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data *>(raw));
+}
+
+int main()
+{
+	uintptr_t raw; 
+	Data data;
+	Data *data1;
+	data.i = 100;
+	data.str = "hello world";
+	raw = serialize(&data);
+	data1 = deserialize(raw);
+	std::cout << "data1 integer value is: " << data1->i << std::endl;
+	std::cout << "data1 string value is: " << data1->str << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:16:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/31 15:14:52 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/06 21:38:50 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ void test_confirm_sign()
 {
 	std::cout << GREEN << "TESTING INCREMENTATION GRADE" << RESET <<std::endl;
 	try {
-		Bureaucrat me;
+		Bureaucrat me("me", 1);
 		Form boy("bot", 4, 2);
-	//	boy.beSigned(me);
-		me.signForm(boy);
+		boy.beSigned(me);
 	}
 	catch (std::exception& excp){
 		std::cout << excp.what() << std::endl;
@@ -52,8 +51,8 @@ void test_confirm_sign()
 
 int main()
 {
-//	test_low();
-//	test_high();
+	test_low();
+	test_high();
 	test_confirm_sign();
 	
 	return (0);

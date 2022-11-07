@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:15:04 by houazzan          #+#    #+#             */
-/*   Updated: 2022/10/27 11:18:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/06 22:29:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Bureaucrat::incrementGrade(void)
 {
 	_grade--;
 	if (_grade < MAX_GRADE)
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 }
 
 
@@ -69,12 +69,12 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 		std::cout << "Setting the Bureaucrat and it's grade" << std::endl;
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw ()
+const char* Bureaucrat::GradeTooLowException::what() const 
 {
 	return("the grade is to low");
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const 
 {
 	return("the grade is to high");
 }

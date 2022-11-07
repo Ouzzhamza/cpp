@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 15:53:41 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 18:46:45 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/07 16:19:14 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/07 21:38:17 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include <iostream>
 #include <time.h>
 
-using namespace std;
+class Base {
+	public :
+		virtual ~Base();
+};
 
-int main()
-{
-	srand(time(NULL));
-	cout<<rand()%3<<endl;            //choose random numbers from 0 to 99
-	std::cout << time(NULL) <<std::endl;
+Base *generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
-}
+#endif
