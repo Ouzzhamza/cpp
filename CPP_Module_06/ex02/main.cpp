@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 20:51:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 23:42:08 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/07 23:53:21 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ int main()
 	Base *unkown = generate();
 	identify(unkown);
 	identify(unkown);
+	delete unkown;
 }
