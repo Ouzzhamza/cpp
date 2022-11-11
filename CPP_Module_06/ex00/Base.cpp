@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:14:07 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 21:28:35 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:24:42 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 Base::Base()
 {
-	precision = 1;
 	chr = '\0';
+	precision = 1;
 	intg = MAX_INT;
 	dbl = MAX_INT;
 	flt = MAX_INT;
@@ -96,6 +96,8 @@ void Base::print_char()
 {
 	if (isprint(chr))
 		std::cout << "char: " << chr << std::endl;
+	else if (intg > 255 || dbl > 255 || flt > 255)
+		std::cout << "char: Impossible" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 }
@@ -103,19 +105,26 @@ void Base::print_char()
 void Base::print_int()
 {
 	if (intg >= MAX_INT || intg <= MIN_INT)
-		std::cout << "int: Non displayable" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << intg << std::endl;
 }
 
 void Base::print_double()
 {
-	std::cout << "double: " << std::fixed << std::setprecision(precision) << dbl << std::endl;
+	if (precision == 1)
+		std::cout << "double: " << std::fixed << std::setprecision(precision) << dbl << std::endl;
+	else
+		std::cout  << "double: " <<  dbl << std::endl;
+
 }
 
 void Base::print_float()
 {
-	std::cout << "float: "  << std::fixed << std::setprecision(precision) << flt << "f" << std::endl;
+	if (precision == 1)
+		std::cout << "float: " << std::fixed << std::setprecision(precision) << flt << "f" << std::endl;
+	else
+		std::cout << "float: " << flt << "f" << std::endl;
 }
 
 void Base::print_nan()
@@ -148,15 +157,18 @@ void Base::to_Char(void)
 void Base::to_Int(void)
 {
 	std::stringstream(literal) >> this->intg;
-	this->chr = static_cast<char>(intg);
+	if (intg < 127)
+		this->chr = static_cast<char>(intg);
 	this->dbl = static_cast<double>(intg);
-	this->flt = static_cast<float>(intg);
+	if (literal.length() <= 8)
+		this->flt = static_cast<float>(intg);
 }
 
 void Base::to_Double(void)
 {
 	std::stringstream(literal) >> this->dbl;
-	this->chr = static_cast<char>(dbl);
+	if (dbl < 127)
+		this->chr = static_cast<char>(dbl);
 	this->intg =  static_cast<int>(dbl);
 	this->flt = static_cast <float>(dbl);
 }
@@ -166,7 +178,8 @@ void Base::to_Float(void)
 
 	literal.pop_back();
 	std::stringstream(literal) >> this->flt;
-	this->chr = static_cast<char>(flt);
+	if (flt < 127)
+		this->chr = static_cast<char>(flt);
 	this->intg = static_cast<int>(flt);
 	this->dbl = static_cast<double>(flt);
 }

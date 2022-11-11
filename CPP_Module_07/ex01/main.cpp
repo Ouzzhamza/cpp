@@ -5,27 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 20:51:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/11 14:07:00 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/11 14:13:28 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/11 17:56:17 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include "iter.hpp"
 
-
-/*void leak()
+void test_for_int(void)
 {
-	system("leaks real_type");
-}*/
+	std::cout << "\t\t TEST_FOR_INT" << std::endl;
+	int array[2] = {10, 11};
+
+	iter(array, 2, replace);
+	for (int i = 0; i < 2; i++)
+	{
+		std::cout << array[i] << std::endl;
+	}
+}
+
+void test_for_double(void)
+{
+	std::cout << "\t\t TEST_FOR_DOUBLE" << std::endl;
+	double array[2] = {5.5, 6.01};
+	iter(array, 2, replace);
+
+	for (int i = 0; i < 2; i++)
+	{
+		std::cout << array[i] << std::endl;
+	}
+}
 
 int main()
 {
-	Base *unkown = generate();
-	identify(*unkown);
-//	identify(unkown);
-	delete unkown;
-//	atexit(leak);
+	test_for_int();
+	test_for_double();
 }

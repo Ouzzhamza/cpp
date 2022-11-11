@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:01:58 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 23:44:19 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:07:05 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "B.hpp"
 #include "C.hpp"
 
+class known{
+};
 Base::~Base(){}
 
 

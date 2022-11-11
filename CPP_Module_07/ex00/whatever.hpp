@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 20:51:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/11 14:07:00 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/10 23:43:12 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/11 14:07:13 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
+#include <iostream>
 
-/*void leak()
+template <typename T>
+void swap(T &x, T &y)
 {
-	system("leaks real_type");
-}*/
-
-int main()
-{
-	Base *unkown = generate();
-	identify(*unkown);
-//	identify(unkown);
-	delete unkown;
-//	atexit(leak);
+	T z;
+	z = x;
+	x = y;
+	y = z;
 }
+
+template <typename T>
+T max(T x, T y)
+{
+	return (x > y) ? x : y;
+}
+
+template <typename T>
+T min(T x, T y)
+{
+	return (x < y) ? x : y;
+}
+#endif

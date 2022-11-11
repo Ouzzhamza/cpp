@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 20:51:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/11 14:07:00 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/11 15:20:25 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/11 17:43:07 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <iostream>
 
 
-/*void leak()
+template <typename T>
+void iter(T *array, unsigned int length, void (func)(T &x))
 {
-	system("leaks real_type");
-}*/
-
-int main()
-{
-	Base *unkown = generate();
-	identify(*unkown);
-//	identify(unkown);
-	delete unkown;
-//	atexit(leak);
+	for (unsigned int i = 0; i < length; i++)
+	{
+		func(array[i]);
+	}
 }
+
+template <typename T>
+void replace(T &i)
+{
+	i = 0;
+}
+
+
+#endif

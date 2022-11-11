@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:41:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/07 16:18:43 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:16:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Data *deserialize(uintptr_t raw)
 
 int main()
 {
-	uintptr_t raw; 
+	uintptr_t raw;
 	Data data;
 	Data *data1;
 	data.i = 100;
