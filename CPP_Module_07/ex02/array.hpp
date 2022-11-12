@@ -1,42 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 10:03:20 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/12 12:00:20 by houazzan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
-
+#include <iostream>
+#include <exception>
+#include <ctime>
+#include <stdio.h>
+#include <stdlib.h>
 template<class T>
 class Array{
 	public :
-		Array(void)
+		Array(void) // default constructor
 		{
-			size = 1;
-			array = new T[size];
+			_size = 1;
+			array = new T[_size];
 		}
-		Array(unsigned int n)
+
+		Array(unsigned int n) // type constructor
 		{
-			size = n;
-			array = new T[size];
+			_size = n;
+			array = new T[_size];
 		}
-		Array(const & obj)
+
+		Array(const Array& obj) // coppy constructor
 		{
-			*this = array;
+			*this = obj.array;
 		}
-		~Array()
+
+		~Array() //destructor
 		{
-			delete array[];
+			delete[] array;
 		}
-		Array & operator=(const & obj)
+		
+		T& operator[] (int index)
 		{
-			size = obj->size;
-			array = new T [size];
-			for (int i = 0; i < size; i++)
+			return(array[index]);
+		}
+
+		const Array & operator=(const Array& obj)// copy assignement operator
+		{
+			_size = obj._size;
+			array = new T [_size];
+			for (unsigned int i = 0; i < _size; i++)
 			{
 				array[i] = obj.array[i];
 			}
 			return *this;
 		}
+		unsigned int size()
+		{
+			return (_size);
+		}
 	private :
 		T *array;
-		unsigned int size;
+		unsigned int _size;
 };
 
 

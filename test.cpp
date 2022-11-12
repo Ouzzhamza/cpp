@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:53:41 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/10 21:36:10 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/12 09:40:36 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ int main()
 	base *B = new base;
 	Base->i = 10;
 	der  = dynamic_cast< *>(Base);*/
-	int i = 5;
-	double *b;
+	int i = new int[10];
+	std::cout << "here " << i << std::endl;
+//	double *b;
 
-	b = reinterpret_cast<double *>(i);
+//	b = reinterpret_cast<double *>(i);
 	//std::cout << B->i << std::endl;
 }
