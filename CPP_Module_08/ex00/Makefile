@@ -4,11 +4,11 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
 
-HEADERS = Array.hpp
+HEADERS = easyfind.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = Array
+NAME = templates
 
 all : $(NAME) 
 

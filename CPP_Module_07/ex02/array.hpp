@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.hpp                                          :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 10:03:20 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/12 12:00:20 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:46:10 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 #include <ctime>
 #include <stdio.h>
 #include <stdlib.h>
+
 template<class T>
 class Array{
 	public :
 		Array(void) // default constructor
 		{
-			_size = 1;
+			_size = 0;
 			array = new T[_size];
 		}
 
@@ -36,7 +37,8 @@ class Array{
 
 		Array(const Array& obj) // coppy constructor
 		{
-			*this = obj.array;
+			array = new T[1];
+			*this = obj;
 		}
 
 		~Array() //destructor
@@ -44,13 +46,25 @@ class Array{
 			delete[] array;
 		}
 		
-		T& operator[] (int index)
+		T& operator[] (unsigned int index) // operator for read and write
 		{
-			return(array[index]);
+			if (index < 0 || _size < index)
+				throw std::invalid_argument("invalid index");
+			else
+				return(array[index]);
+		}
+
+		T& operator[] (unsigned int index) const
+		{
+			if (index < 0 || _size < index)
+				throw std::invalid_argument("invalid index");
+			else
+				return(array[index]);
 		}
 
 		const Array & operator=(const Array& obj)// copy assignement operator
 		{
+			delete [] array;
 			_size = obj._size;
 			array = new T [_size];
 			for (unsigned int i = 0; i < _size; i++)
