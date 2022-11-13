@@ -8,7 +8,7 @@ HEADERS = easyfind.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = templates
+NAME = Easy_find
 
 all : $(NAME) 
 

@@ -17,13 +17,17 @@ int main()
 	std::vector<int> vs;
 	int arr[4] = {10, 100, 200, 300};
 	int *ptr = arr;
-	std::vector<int>::iterator it;
-	for (it = vs.begin(); it != vs.end(); it++)
+	for(int i = 0; i < 4; i++)
 	{
 		vs.push_back(*ptr);
 		(*ptr)++;
 	}
-	easyfind(vs, 5);
+	try {
+		easyfind(vs, 5);
+	}
+	catch (std::exception &exp)
+	{
+		std::cout << exp.what() << std::endl;
+	}
+	//(void)ptr;
 }
-
-

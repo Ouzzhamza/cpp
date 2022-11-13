@@ -14,12 +14,24 @@
 #define EASYFIND_HPP
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-template <typename C>
-void easyfind(C const &container, int integer)
+
+class Notexists : public std::exception {
+	public :
+		const char *what()  throw(){
+			return (" Number not foun");
+		}
+};
+
+template <typename T>
+void easyfind(T const &container, int integer)
 {
-	int found {std::find(container.begin(), container.end(), integer)};
+	typename T::iterator Iter;
+	Iter i = std::find(iter.begin(), iter.end(), integer);
+	if (i != iter.end())
+		std::cout << "Number exists at index " << i << std::endl;
+	else
+		throw Notexistsi();
 }
 
 
