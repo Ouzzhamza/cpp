@@ -2,13 +2,13 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Span.cpp
+SRC = main.cpp MutantStack.cpp
 
-HEADERS = Span.hpp
+HEADERS = MutantStack.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = Span
+NAME = MutantStack
 
 all : $(NAME) 
 
