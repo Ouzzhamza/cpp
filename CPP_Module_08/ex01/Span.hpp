@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:54:48 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/14 18:46:10 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:20:00 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <vector>
 
 class Span {
 	
@@ -23,20 +24,33 @@ class Span {
 
 		std::vector<int> _vector;
 
-	public : 
+	public :
+
+		Span();
+	
 		Span(unsigned int _N); // constructor
 
-		Span(const & obj); // copy constructor
+		Span(const Span& obj); // copy constructor
 
 		~Span(); //destructor
 
-		Span& operator=(const &obj); // copy assignement operator
+		Span& operator=(const Span& obj); // copy assignement operator
 
-		addNumber();
+		unsigned int getN() const;
+
+		void addNumber(int i);
 		
-		shortestSpan();
+		int shortestSpan();
 		
-		longestSpan();
+		int longestSpan();
+
+		class OutRange : public std::exception {
+			public :
+				const char *what() const throw()
+				{
+					return ("Sorry class is full can't add the number: ");
+				}
+		};
 };
 
 

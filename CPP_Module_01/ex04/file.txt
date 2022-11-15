@@ -1,4 +1,0 @@
-I am replacing every number "9" with its written value "nine"
-9
-9999569
-999

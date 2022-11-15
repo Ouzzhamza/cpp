@@ -5,27 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 13:53:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/15 13:19:53 by houazzan         ###   ########.fr       */
+/*   Created: 2022/11/15 13:19:49 by houazzan          #+#    #+#             */
+/*   Updated: 2022/11/15 14:51:46 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define VAL 10000
-#include "Span.hpp"
-
 int main()
 {
-/*	srand(time(NULL));
-	Span sp = Span(VAL);
-	for (int i = 0; i < VAL; i++)
-		sp.addNumber(rand());*/
-	Span sp = Span(5);
-	sp.addNumber(-6);
-	sp.addNumber(-3);
-	sp.addNumber(-17);
-	sp.addNumber(9);
-	sp.addNumber(-11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
 	return 0;
 }
