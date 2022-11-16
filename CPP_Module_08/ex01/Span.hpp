@@ -6,7 +6,7 @@
 /*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:54:48 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/15 13:20:00 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:36:02 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Span {
 
 	public :
 
-		Span();
+		Span(); // default constructor
 	
 		Span(unsigned int _N); // constructor
 
