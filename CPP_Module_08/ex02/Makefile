@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp MutantStack.cpp
+SRC = main.cpp
 
 HEADERS = MutantStack.hpp
 

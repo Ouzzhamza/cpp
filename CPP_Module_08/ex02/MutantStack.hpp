@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:29:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/11/16 11:36:40 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:47:36 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,40 @@
 #include <iostream>
 #include <stack>
 # include <iterator>
+#include <sstream>
+#include <vector>
 
-template <class T>
-class MutantStack : public std::stack<T> {
+template <class T,  class Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container> {
 	public :
 
-		MutantStack();
+		MutantStack() {}
 
-		~MutantStack();
+		~MutantStack() {}
 		
-		MutantStack(MutantStack<T> const& other);
+		MutantStack(MutantStack<T, Container> const& other)
+		{
+			this = other;
+		}
 
-		MutantStack<T> &operator= (MutantStack<T> const& other);
+		MutantStack<T, Container> &operator= (MutantStack<T, Container> const& other)
+		{
+			this->c = other.c;
 
-		typedef typename std::stack<T>::container_type::iterator iterator;
+			return *this;
+		}
 
-		iterator begin();
+		typedef typename Container::iterator iterator;
 
-		iterator end();
+		iterator begin()
+		{
+			return MutantStack<T, Container>::c.begin();
+		}
+
+		iterator end()
+		{
+			return MutantStack<T, Container>::c.end();
+		}
 
 
 };
