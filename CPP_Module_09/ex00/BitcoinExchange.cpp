@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:08:47 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/13 01:14:08 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/04/13 02:38:59 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,12 @@ void BitcoinExchange::calculate(std::string date, std::string value)
 {
 	double result;
 	std::string str;
+	std::string check;
 	double val = std::atof(value.c_str());
 	std::map<std::string, double>::iterator it;
 	it = _myData.lower_bound(date);
-	
+	if (it->first.compare(date) != 0 && it != _myData.begin())
+		it--;
 	result =  it->second * val;
 	std::cout <<  date + " => " + value  + " => " <<  result << std::endl;
 	// std::cout << result << std::endl;
