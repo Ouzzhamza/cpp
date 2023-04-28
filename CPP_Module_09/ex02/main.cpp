@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 01:14:14 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/14 02:22:34 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/04/27 10:06:09 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int ac, char** av)
 {
     try
     {
-        if (ac == 1)
+        if (ac == 1 || !checkDouble(av))
             throw std::invalid_argument ("Error");
         else
             PmergeMe _PmergeMe(av);

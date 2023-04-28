@@ -12,10 +12,10 @@ NAME   = PmergeMe
 
 all	   : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) 
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.cpp
+%.o : %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
