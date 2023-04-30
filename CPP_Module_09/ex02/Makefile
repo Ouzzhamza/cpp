@@ -10,12 +10,12 @@ OBJ = $(SRC:.cpp=.o)
 
 NAME   = PmergeMe
 
-all	   : $(NAME)
+all	:	$(NAME)
 
-$(NAME) : $(OBJ) 
+$(NAME) :	$(OBJ) 
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o :	%.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 

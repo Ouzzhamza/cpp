@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 01:16:03 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/28 22:43:59 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/04/30 19:42:25 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <algorithm>
+#include <ctime>
 
 class PmergeMe
 {
@@ -30,7 +31,9 @@ private:
 	std::vector<int>_vector;
 	std::deque<int>_deque;
 	int number;
-	double timespend;
+	int length;
+	double timeSpendVector;
+	double timeSpendDeque;
 	
 public:
 
@@ -38,13 +41,14 @@ public:
 	PmergeMe(char **str);
 	~PmergeMe();
 
-	void	vectorManipulation();
-	void	dequeManipulation();
+	void	vectorManipulation(char **str);
+	void	dequeManipulation(char **str);
 	void	vectorMergeSort(std::vector<int> &arr, int left, int right);
 	void	vectorSort(std::vector<int> &arr, int mid, int left, int right);
 	void	dequeMergeSort(std::deque<int> &arr, int left, int right);
-	void	dequeSort();
-	void	insertionSort();
+	void	dequeSort(std::deque<int> &arr, int mid, int left, int right);
+	void	VectorInsertionSort(int left, int right);
+	void	DequeInsertionSort(int left, int right);
 };
 
 	int		checkDouble(char **str);
