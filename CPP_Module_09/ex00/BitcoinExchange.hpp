@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 23:40:53 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/14 01:17:08 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:13:42 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class BitcoinExchange
 		void    	fillMap();
 		void 		exchange();
 		int			is_integer(std::string str);
+		int			isLeap(int year);
 		void		calculate(std::string date, std::string value);
 };
 

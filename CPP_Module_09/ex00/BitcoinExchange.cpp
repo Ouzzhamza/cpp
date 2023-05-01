@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:08:47 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/13 02:38:59 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:20:04 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,5 +167,10 @@ int BitcoinExchange::is_integer(std::string str)
 	if (std::atof(str.c_str()) > 1000)
 		return (throw std::runtime_error("Error: too large a number." ), 0);
 	return(1);
+}
+
+int	BitcoinExchange::isLeap(int year)
+{
+	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
