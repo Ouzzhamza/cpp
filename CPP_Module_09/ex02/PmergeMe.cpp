@@ -6,7 +6,7 @@
 /*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 01:15:56 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/30 19:46:18 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:25:40 by ouzhamza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ PmergeMe::~PmergeMe() {
 
 PmergeMe::PmergeMe(char **str) 
 {
-	length = 5;
+	length = 2;
 	
 	std::cout << "Before: ";
 	for (int i = 1; str[i]; i++) {
@@ -91,18 +91,19 @@ void    PmergeMe::dequeManipulation(char **str)
 
 void	PmergeMe::vectorMergeSort(std::vector<int> &arr, int left, int right)
 {
-		if (left < right) 
-		{
-			if ((right - left) > length) {
-				
-				int mid = (left + left) / 2;
-				vectorMergeSort(arr, left, mid);
-				vectorMergeSort(arr, mid + 1, right);
-				vectorSort(arr, mid, left, right);
-			}
-			else
-				VectorInsertionSort(left, right);
+	if (left < right) 
+	{
+		if ((right - left) >= length) {
+		
+			int mid = (left + right) / 2;
+			vectorMergeSort(arr, left, mid);
+			vectorMergeSort(arr, mid + 1, right);
+			vectorSort(arr, mid, left, right);
 		}
+		else {
+			VectorInsertionSort(left, right);
+		}
+	}
 }
 
 
@@ -112,13 +113,13 @@ void	PmergeMe::dequeMergeSort(std::deque<int> &arr, int left, int right)
 		{
 			if ((right - left) > length) {
 				
-				int mid = (left + left) / 2;
+				int mid = (left + right) / 2;
 				dequeMergeSort(arr, left, mid);
 				dequeMergeSort(arr, mid + 1, right);
 				dequeSort(arr, mid, left, right);
 			}
 			else
-				VectorInsertionSort(left, right);
+				DequeInsertionSort(left, right);
 		}
 }
 
@@ -127,8 +128,8 @@ void	PmergeMe::vectorSort(std::vector<int> &arr, int mid, int left, int right)
 {
 	std::vector<int>temp(right - left + 1);
 	int i = left, j = mid + 1, k = 0;
+
 	while (i <= mid && j <= right) {
-		
 		if (arr[i] <= arr[j]) {
 			
 			temp[k++] = arr[i++];
@@ -137,7 +138,7 @@ void	PmergeMe::vectorSort(std::vector<int> &arr, int mid, int left, int right)
 			temp[k++] = arr[j++];
 		}
 	}
-	 while (i <= mid) {
+	while (i <= mid) {
         temp[k++] = arr[i++];
     }
 	while (j <= right) {
@@ -183,11 +184,10 @@ void	PmergeMe::VectorInsertionSort(int left, int right)
 		i = left;
 		while (i < right) {
 	
-			if (_vector[i] < _vector[left]) {
-				
+			if (_vector[i] > _vector[right]) {
 				temp = _vector[i];
-				_vector[i] = _vector[left];
-				_vector[left] = temp;
+				_vector[i] = _vector[right];
+				_vector[right] = temp;
 			}
 			i++;
 		}
@@ -226,7 +226,7 @@ int checkDouble(char **str)
 		j = i + 1;
 		while (str[j])
 		{
-			if (!strcmp(str[i], str[j]))
+			if (!strcmp(str[i], str[j]) || (str[j][0] == '+' && str[i][0] == str[j][1]))
 				return(0);
 			j++;
 		}
