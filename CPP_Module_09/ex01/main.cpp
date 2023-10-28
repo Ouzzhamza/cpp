@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouzzhamza <ouzzhamza@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 01:25:41 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/13 02:12:03 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:06:49 by ouzzhamza        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int main(int ac, char **av)
 {
     try
     {
-        if (ac != 2)
+        if (ac != 2) {
             throw std::invalid_argument("Error");
+        }
         else
         {
             Rpn Reverse;

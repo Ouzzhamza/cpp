@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouzzhamza <ouzzhamza@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 01:15:56 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/06/07 16:25:40 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/10/27 16:37:00 by ouzzhamza        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ PmergeMe::~PmergeMe() {
 PmergeMe::PmergeMe(char **str) 
 {
 	length = 2;
-	
+	vectorManipulation(str);
+	dequeManipulation(str);
 	std::cout << "Before: ";
 	for (int i = 1; str[i]; i++) {
         std::cout << str[i] << " ";
     }
     std::cout << std::endl;
 	
-	vectorManipulation(str);
 	
 	std::cout << "After:  ";
 	int n = _vector.size();
@@ -40,8 +40,7 @@ PmergeMe::PmergeMe(char **str)
     std::cout << std::endl;
 	std::cout << "Time to process a range of "<< _vector.size() << " elements with std::vector :" << timeSpendVector << " seconds" << std::endl;
 	
-	dequeManipulation(str);
-	std::cout << "Time to process a range of "<< _deque.size() << " elements with std::vector :" << timeSpendDeque << " seconds" << std::endl;
+	std::cout << "Time to process a range of "<< _deque.size() << " elements with std::deque :" << timeSpendDeque << " seconds" << std::endl;
 	
 }
 
@@ -56,16 +55,17 @@ void    PmergeMe::vectorManipulation(char **str)
 	start = std::clock();
 	while (str[i])
 	{
-		number = std::atoi(str[i]);
-		if (number < 0 )
+		number = std::atol(str[i]);
+		if (number < 0)
 			throw std::invalid_argument("Error");
 		else 
 			_vector.push_back(number);
 		i++;
 	}
+
 	vectorMergeSort(_vector, 0, _vector.size() - 1);
 	end = std::clock();
-	timeSpendVector = (double)(end - start) / CLOCKS_PER_SEC;
+	timeSpendVector = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 }
 
 void    PmergeMe::dequeManipulation(char **str)
@@ -77,7 +77,7 @@ void    PmergeMe::dequeManipulation(char **str)
 	start = std::clock();
 	while (str[i])
 	{
-		number = std::atoi(str[i]);
+		number = std::atol(str[i]);
 		if (number < 0 )
 			throw std::invalid_argument("Error");
 		else 
@@ -86,28 +86,31 @@ void    PmergeMe::dequeManipulation(char **str)
 	}
 	dequeMergeSort(_deque, 0, _deque.size() - 1);
 	end = std::clock();
-	timeSpendDeque = (double)(end - start) / CLOCKS_PER_SEC;
+	timeSpendDeque = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 }
 
-void	PmergeMe::vectorMergeSort(std::vector<int> &arr, int left, int right)
+void	PmergeMe::vectorMergeSort(std::vector<long> &arr, int left, int right)
 {
-	if (left < right) 
+
+	if (left < right)  // checking that i'm not in the same vectore index
 	{
-		if ((right - left) >= length) {
+		if ((right - left) >= length) { // checking that there is more than two numbers between left and right chek  two numbers 
 		
 			int mid = (left + right) / 2;
 			vectorMergeSort(arr, left, mid);
 			vectorMergeSort(arr, mid + 1, right);
 			vectorSort(arr, mid, left, right);
+					
 		}
 		else {
+
 			VectorInsertionSort(left, right);
 		}
 	}
 }
 
 
-void	PmergeMe::dequeMergeSort(std::deque<int> &arr, int left, int right)
+void	PmergeMe::dequeMergeSort(std::deque<long > &arr, int left, int right)
 {
 		if (left < right) 
 		{
@@ -124,9 +127,10 @@ void	PmergeMe::dequeMergeSort(std::deque<int> &arr, int left, int right)
 }
 
 
-void	PmergeMe::vectorSort(std::vector<int> &arr, int mid, int left, int right)
+void	PmergeMe::vectorSort(std::vector<long > &arr, int mid, int left, int right)
 {
-	std::vector<int>temp(right - left + 1);
+
+	std::vector<long>temp(right - left + 1);
 	int i = left, j = mid + 1, k = 0;
 
 	while (i <= mid && j <= right) {
@@ -145,14 +149,14 @@ void	PmergeMe::vectorSort(std::vector<int> &arr, int mid, int left, int right)
         temp[k++] = arr[j++];
     }
 	for (i = left; i <= right; i++) {
+		
         arr[i] = temp[i - left];
     }
 }
 
-
-void	PmergeMe::dequeSort(std::deque<int> &arr, int mid, int left, int right)
+void	PmergeMe::dequeSort(std::deque<long > &arr, int mid, int left, int right)
 {
-	std::deque<int>temp(right - left + 1);
+	std::deque<long>temp(right - left + 1);
 	int i = left, j = mid + 1, k = 0;
 	while (i <= mid && j <= right) {
 		
@@ -216,21 +220,22 @@ void	PmergeMe::DequeInsertionSort(int left, int right)
 	}
 }
 
-int checkDouble(char **str)
+int parseAndCheck(char **str)
 {
 	int i = 1;
-	
-	int j;
+
 	while (str[i])
 	{
-		j = i + 1;
-		while (str[j])
+		char *token = str[i];
+		for (int j = 0; token[j] != '\0'; j++)
 		{
-			if (!strcmp(str[i], str[j]) || (str[j][0] == '+' && str[i][0] == str[j][1]))
-				return(0);
-			j++;
+			if (std::isalpha(token[j]))
+				return (0);
 		}
+		if (token[0] == '-')
+			return (0);
 		i++;
 	}
+
 	return (1);
 }

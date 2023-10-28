@@ -1,7 +1,6 @@
 CC     = c++
 
-CFLAGS  = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
-
+CFLAGS  = -Wall -Wextra -Werror -std=c++98
 SRC    = main.cpp PmergeMe.cpp
 
 HEADER = PmergeMe.hpp

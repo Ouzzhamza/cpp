@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouzzhamza <ouzzhamza@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 01:26:20 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/14 02:15:02 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:59:28 by ouzzhamza        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    Rpn::calculate(std::string str)
 	size_t i = 0;
 
 	int number;
-
+	
 	while(str[i])
 	{
 		if (isdigit(str[i])) {
@@ -56,12 +56,21 @@ void	Rpn::multiplication() {
 	int second;
 	int result;
 
-	first = _stack.top();
-	if (!_stack.empty())
+	if (_stack.size() < 2)
+	{
+		first = _stack.top();
+		std::cout << first << std::endl;
+		throw std::invalid_argument("Error");
+	}
+
+	if (!_stack.empty()) {
+		first = _stack.top();
 		_stack.pop();
+	}
+	if (!_stack.empty()) {
 	second = _stack.top();
-	if (!_stack.empty())
 		_stack.pop();
+	}
 	result = first * second;
 	_stack.push(result);
 }
@@ -72,7 +81,10 @@ void	Rpn::addition() {
 	int first;
 	int second;
 	int result;
-
+	
+	if (_stack.size() < 2)
+		throw std::invalid_argument("Error");
+		
 	first = _stack.top();
 	if (!_stack.empty())
 		_stack.pop();
@@ -90,6 +102,9 @@ void	Rpn::subtraction() {
 	int second;
 	int result;
 
+	if (_stack.size() < 2)
+		throw std::invalid_argument("Error");
+		
 	first = _stack.top();
 	if (!_stack.empty())
 		_stack.pop();
@@ -98,6 +113,7 @@ void	Rpn::subtraction() {
 		_stack.pop();
 	result = second - first;
 	_stack.push(result);	
+
 }
 
 
@@ -107,13 +123,15 @@ void	Rpn::division() {
 	int second;
 	int result;
 
+	if (_stack.size() < 2)
+		throw std::invalid_argument("Error");
+		
 	first = _stack.top();
 	if (!_stack.empty())
 		_stack.pop();
 	second = _stack.top();
 	if (!_stack.empty())
 		_stack.pop();
-	result = first / second;
+	result = second / first;
 	_stack.push(result);
-	
 }

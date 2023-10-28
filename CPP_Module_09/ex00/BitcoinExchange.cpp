@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouzzhamza <ouzzhamza@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:08:47 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/05/01 15:20:04 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/10/27 07:02:16 by ouzzhamza        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ void BitcoinExchange::fillMap()
 		throw std::runtime_error("Can't open data file");
 	else {
 			getline(infile, line);
+			if(infile.eof())
+				throw std::runtime_error("Sorry no data exist for the moment");	
 			while (!infile.eof())
 			{
 				getline(infile, line);
 				try {
-					if (!_file.compare("data.csv"))
-						_myData[get_date(line)] =  get_value(line);
+					_myData[get_date(line)] =  get_value(line);
 				}
 				catch (const std::exception &e) {
         			std::cout << e.what() << std::endl;
@@ -72,6 +73,8 @@ void BitcoinExchange::exchange()
 		throw std::runtime_error("Can't open data file");
 	else {
 			getline(infile, line);
+			if (infile.eof())
+				throw std::runtime_error("the file is empty");
 			while (!infile.eof())
 			{
 				getline(infile, line);
@@ -96,11 +99,11 @@ void BitcoinExchange::calculate(std::string date, std::string value)
 	double val = std::atof(value.c_str());
 	std::map<std::string, double>::iterator it;
 	it = _myData.lower_bound(date);
-	if (it->first.compare(date) != 0 && it != _myData.begin())
+	if (it->first.compare(date) != 0 && it != _myData.begin()) {
 		it--;
+	}
 	result =  it->second * val;
 	std::cout <<  date + " => " + value  + " => " <<  result << std::endl;
-	// std::cout << result << std::endl;
 }
 
 std::string BitcoinExchange::get_date(std::string str)
@@ -138,18 +141,22 @@ int BitcoinExchange::parsingInput(std::string str)
 	if (!isdigit(str[0]) || (!isdigit(str[str.length() - 1]) && str[str.length() - 1] != ' '))
 		return (throw std::runtime_error("Error: bad input => " + str), 0);
 	str.erase(str.length() - 1);
-	std::string format = "%Y-%m-%d";
-	if (strptime(str.c_str(), format.c_str(), &time_info) != NULL) {
+	const char* format = "%Y-%m-%d";
+		if (strptime(str.c_str(), format, &time_info) != NULL) {
+
+		
     	if ((time_info.tm_mday >= 1 && time_info.tm_mday <= 31
         	&& time_info.tm_mon >= 0 && time_info.tm_mon <= 11
-       		&& time_info.tm_year >= 0) && str.size() == 10) 
+       		&& time_info.tm_year + 1900 >= 2009 && time_info.tm_year + 1900 < 2023)
+			&& str.size() == 10) 
 			{
 				if (time_info.tm_mon == 1) {
-					if (time_info.tm_mday > 29 || (time_info.tm_year % 4 != 0 && time_info.tm_mday > 28))
+					if (time_info.tm_mday > 29 || (isLeap(time_info.tm_year) && time_info.tm_mday > 28))
 						return (throw std::runtime_error("Error: bad input => " + str), 0);
 				}
 				return(1);
 			}
+			
 	}
 	return (throw std::runtime_error("Error: bad input => " + str), 0);
 }

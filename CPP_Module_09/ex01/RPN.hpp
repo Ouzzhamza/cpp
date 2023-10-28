@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouzhamza <ouzhamza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouzzhamza <ouzzhamza@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 01:26:29 by ouzhamza          #+#    #+#             */
-/*   Updated: 2023/04/14 02:14:52 by ouzhamza         ###   ########.fr       */
+/*   Updated: 2023/10/27 07:09:19 by ouzzhamza        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Rpn
         void    addition();
         void    subtraction();
         void    division();
+        void    convertToString();
 };
 
 #endif
